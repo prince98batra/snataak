@@ -1,11 +1,12 @@
 # Ansible Role Directory Structure
 
-## 👤 Author Information
+## 👤 **Author Information**
+| **Created**       | **Version** | **Last Modified** | **Author**        | **Level**            | **Reviewer**  |
+|--------------------|-------------|-------------------|-------------------|------------------------|---------------|
+| 17-04-2025         | V1          | 17-04-2025        | Prince Batra    | Internal review        | Siddharth Pawar        |
+| 17-04-2025         | V2          | 17-04-2025        | Prince Batra      | L0 Review | Shikha        |
 
-| **Author**      | **Created on** | **Version**  | **Comment**         | **Reviewer**       |
-|------------------|----------------|--------------|----------------------|---------------------|
-| **Prince Batra** | 17-04-2025     | Version 1    | Internal review      | Siddharth Pawar     |
-| **Prince Batra** | 17-04-2025     | Version 1    | L0 review            | Shikha              |
+---
 
 ## 📑 Table of Contents
 
