@@ -14,14 +14,14 @@
 3. [How to Create an Ansible Role](#3-how-to-create-an-ansible-role)  
 4. [Directory Breakdown (with Purpose, Use Case, and Example)](#4-directory-breakdown-with-purpose-use-case-and-example)  
    - [defaults/](#defaults)  
-   - [files](#files)  
-   - [handlers](#handlers)  
-   - [meta](#meta)  
-   - [tasks](#tasks)  
-   - [templates](#templates)  
-   - [vars](#vars)  
-   - [tests](#tests)  
-   - [readme.md](#readmemd)  
+   - [files/](#files)  
+   - [handlers/](#handlers)  
+   - [meta/](#meta)  
+   - [tasks/](#tasks)  
+   - [templates/](#templates)  
+   - [vars/](#vars)  
+   - [tests/](#tests)  
+   - [README.md](#readmemd)  
 5. [Best Practices](#5-best-practices)  
 6. [Contact Information](#contact-information)  
 7. [References](#-references)
@@ -95,7 +95,8 @@ nginx_conf_path: /etc/nginx/nginx.conf
 
 ---
 
-**files/**
+<a id="defaults"></a>
+### files/
 
 **Purpose:**  
 Holds static files to be copied to target hosts.
@@ -113,7 +114,8 @@ Deploy a static `index.html` to a web server.
 
 ---
 
-**handlers/**
+<a id="defaults"></a>
+### handlers/
 
 **Purpose:**  
 Contains tasks that run only when notified, e.g., restarting services.
@@ -131,7 +133,8 @@ Restart Nginx if the config changes.
 
 ---
 
-**meta/**
+<a id="defaults"></a>
+### meta/
 
 **Purpose:**  
 Defines metadata like author, license, and dependencies.
@@ -148,7 +151,8 @@ galaxy_info:
 
 ---
 
-**tasks/**
+<a id="defaults"></a>
+### tasks/
 
 **Purpose:**  
 The main logic of the role — the actual automation steps.
@@ -173,7 +177,8 @@ Install and configure the nginx service.
 
 ---
 
-**templates/**
+<a id="defaults"></a>
+### templates/
 
 **Purpose:**  
 Contains Jinja2 templates rendered with variables.
@@ -194,7 +199,8 @@ server {
 
 ---
 
-**vars/**
+<a id="defaults"></a>
+### vars/
 
 **Purpose:**  
 Holds internal role-specific variables that should not be overridden.
@@ -209,7 +215,8 @@ nginx_user: www-data
 
 ---
 
-**tests/**
+<a id="defaults"></a>
+### tests/
 
 **Purpose:**  
 Used to validate that the role works correctly in isolation.
@@ -228,7 +235,8 @@ Run a test playbook before production usage.
 
 ---
 
-**README.md**
+<a id="defaults"></a>
+### README.md
 
 **Purpose:**  
 Provides documentation for how to use the role.
