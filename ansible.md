@@ -13,7 +13,7 @@
 2. [Purpose](#2-purpose)  
 3. [How to Create an Ansible Role](#3-how-to-create-an-ansible-role)  
 4. [Directory Breakdown (with Purpose, Use Case, and Example)](#4-directory-breakdown-with-purpose-use-case-and-example)  
-   - [files/](#42-files)  
+   - [files/](#42-files/)  
    - [handlers/](#43-handlers)  
    - [meta/](#44-meta)  
    - [tasks/](#45-tasks)  
