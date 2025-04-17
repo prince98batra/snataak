@@ -26,7 +26,7 @@
 5. [Best Practices](#5-best-practices)
 6. [Conclusion](#6-conclusion)
 7. [Contact Information](#contact-information)  
-8. [Reference Table](#-reference-table)
+8. [Reference Table](#reference-table)
 
 ---
 
@@ -277,9 +277,12 @@ A well-organized Ansible role structure ensures clarity, reusability, and scalab
 
 ---
 
-## 🔗 Reference Table
+## **Reference Table**
 
-- [Ansible Role Basics - Official Docs](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html)
-- [Ansible Galaxy Roles Guide](https://galaxy.ansible.com/docs/contributing/creating_role.html)
+| **Links** | **Overview** |
+|-----------|--------------|
+| [Ansible Role Basics - Official Docs](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html) | Official documentation on the basics of Ansible roles and their reuse in playbooks. |
+| [Ansible Galaxy Roles Guide](https://galaxy.ansible.com/docs/contributing/creating_role.html) | Guide on how to create and contribute roles on Ansible Galaxy. |
+| [Ansible Documentation](https://docs.ansible.com/) | Official site for all Ansible documentation, including installation, configuration, and usage guides. |
 
 ---
