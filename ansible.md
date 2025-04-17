@@ -13,15 +13,15 @@
 2. [Purpose](#2-purpose)  
 3. [How to Create an Ansible Role](#3-how-to-create-an-ansible-role)  
 4. [Directory Breakdown (with Purpose, Use Case, and Example)](#4-directory-breakdown-with-purpose-use-case-and-example)  
-   - [defaults/](#11-defaults)  
-   - [files/](#12-files)  
-   - [handlers/](#13-handlers)  
-   - [meta/](#14-meta)  
-   - [tasks/](#15-tasks)  
-   - [templates/](#16-templates)  
-   - [vars/](#17-vars)  
-   - [tests/](#18-tests)  
-   - [README.md](#19-readmemd)  
+   - [defaults/](#4.1-defaults)  
+   - [files](#4.2-files)  
+   - [13 handlers](#4.3-handlers)  
+   - [14 meta](#4.4-meta)  
+   - [15 tasks](#4.5-tasks)  
+   - [16 templates](#4.6-templates)  
+   - [17 vars](#4.7-vars)  
+   - [18 tests](#4.8-tests)  
+   - [19 readme.md](#4.9-readmemd)  
 5. [Best Practices](#5-best-practices)  
 6. [Contact Information](#contact-information)  
 7. [References](#-references)
@@ -77,7 +77,7 @@ nginx/
 
 ## 4. Directory Breakdown (with Purpose, Use Case, and Example)
 
-**1.1 defaults/**
+**4.1 defaults/**
 
 **Purpose:**  
 Contains default variables that users can override.
@@ -93,7 +93,7 @@ nginx_conf_path: /etc/nginx/nginx.conf
 
 ---
 
-**1.2 files/**
+**4.2 files/**
 
 **Purpose:**  
 Holds static files to be copied to target hosts.
@@ -111,7 +111,7 @@ Deploy a static `index.html` to a web server.
 
 ---
 
-**1.3 handlers/**
+**4.3 handlers/**
 
 **Purpose:**  
 Contains tasks that run only when notified, e.g., restarting services.
@@ -129,7 +129,7 @@ Restart Nginx if the config changes.
 
 ---
 
-**1.4 meta/**
+**4.4 meta/**
 
 **Purpose:**  
 Defines metadata like author, license, and dependencies.
@@ -146,7 +146,7 @@ galaxy_info:
 
 ---
 
-**1.5 tasks/**
+**4.5 tasks/**
 
 **Purpose:**  
 The main logic of the role — the actual automation steps.
@@ -171,7 +171,7 @@ Install and configure the nginx service.
 
 ---
 
-**1.6 templates/**
+**4.6 templates/**
 
 **Purpose:**  
 Contains Jinja2 templates rendered with variables.
@@ -192,7 +192,7 @@ server {
 
 ---
 
-**1.7 vars/**
+**4.7 vars/**
 
 **Purpose:**  
 Holds internal role-specific variables that should not be overridden.
@@ -207,7 +207,7 @@ nginx_user: www-data
 
 ---
 
-**1.8 tests/**
+**4.8 tests/**
 
 **Purpose:**  
 Used to validate that the role works correctly in isolation.
@@ -226,7 +226,7 @@ Run a test playbook before production usage.
 
 ---
 
-**1.9 README.md**
+**4.9 README.md**
 
 **Purpose:**  
 Provides documentation for how to use the role.
