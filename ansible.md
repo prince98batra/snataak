@@ -13,14 +13,14 @@
 2. [Purpose](#2-purpose)  
 3. [How to Create an Ansible Role](#3-how-to-create-an-ansible-role)  
 4. [Directory Breakdown (with Purpose, Use Case, and Example)](#4-directory-breakdown-with-purpose-use-case-and-example)  
-   - [files/](#42-files/)  
-   - [handlers/](#43-handlers)  
-   - [meta/](#44-meta)  
-   - [tasks/](#45-tasks)  
-   - [templates/](#46-templates)  
-   - [vars/](#47-vars)  
-   - [tests/](#48-tests)  
-   - [README.md](#49-readmemd)   
+   - [files/](#files/)  
+   - [handlers/](#handlers)  
+   - [meta/](#meta)  
+   - [tasks/](#tasks)  
+   - [templates/](#templates)  
+   - [vars/](#vars)  
+   - [tests/](#tests)  
+   - [README.md](#readmemd)   
 5. [Best Practices](#5-best-practices)  
 6. [Contact Information](#contact-information)  
 7. [References](#-references)
@@ -76,7 +76,7 @@ nginx/
 
 ## 4. Directory Breakdown (with Purpose, Use Case, and Example)
 
-**4.1 defaults/**
+**defaults/**
 
 **Purpose:**  
 Contains default variables that users can override.
@@ -92,7 +92,7 @@ nginx_conf_path: /etc/nginx/nginx.conf
 
 ---
 
-**4.2 files/**
+**files/**
 
 **Purpose:**  
 Holds static files to be copied to target hosts.
@@ -110,7 +110,7 @@ Deploy a static `index.html` to a web server.
 
 ---
 
-**4.3 handlers/**
+**handlers/**
 
 **Purpose:**  
 Contains tasks that run only when notified, e.g., restarting services.
@@ -128,7 +128,7 @@ Restart Nginx if the config changes.
 
 ---
 
-**4.4 meta/**
+**meta/**
 
 **Purpose:**  
 Defines metadata like author, license, and dependencies.
@@ -145,7 +145,7 @@ galaxy_info:
 
 ---
 
-**4.5 tasks/**
+**tasks/**
 
 **Purpose:**  
 The main logic of the role — the actual automation steps.
@@ -170,7 +170,7 @@ Install and configure the nginx service.
 
 ---
 
-**4.6 templates/**
+**templates/**
 
 **Purpose:**  
 Contains Jinja2 templates rendered with variables.
@@ -191,7 +191,7 @@ server {
 
 ---
 
-**4.7 vars/**
+**vars/**
 
 **Purpose:**  
 Holds internal role-specific variables that should not be overridden.
@@ -206,7 +206,7 @@ nginx_user: www-data
 
 ---
 
-**4.8 tests/**
+**tests/**
 
 **Purpose:**  
 Used to validate that the role works correctly in isolation.
@@ -225,7 +225,7 @@ Run a test playbook before production usage.
 
 ---
 
-**4.9 README.md**
+**README.md**
 
 **Purpose:**  
 Provides documentation for how to use the role.
