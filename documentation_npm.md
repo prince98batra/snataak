@@ -16,7 +16,7 @@
  
 ## 📜 Table of Contents
 
-1. [Purpose of This Document](#1-purpose-of-this-document)  
+1. [Purpose](#1-purpose)  
 2. [What is NPM?](#2-what-is-npm)  
 3. [Why Should You Use NPM?](#3-why-should-you-use-npm)  
 4. [Key Features of NPM](#4-key-features-of-npm)  
