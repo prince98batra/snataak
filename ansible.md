@@ -76,7 +76,7 @@ nginx/
 
 ## 4. Directory Breakdown (with Purpose, Use Case, and Example)
 
-### 1.1 `defaults/`
+**1.1 defaults/**
 
 **Purpose:**  
 Contains default variables that users can override.
@@ -92,7 +92,7 @@ nginx_conf_path: /etc/nginx/nginx.conf
 
 ---
 
-### 1.2 `files/`
+**1.2 files/**
 
 **Purpose:**  
 Holds static files to be copied to target hosts.
@@ -110,7 +110,7 @@ Deploy a static `index.html` to a web server.
 
 ---
 
-### 1.3 `handlers/`
+**1.3 handlers/**
 
 **Purpose:**  
 Contains tasks that run only when notified, e.g., restarting services.
@@ -128,7 +128,7 @@ Restart Nginx if the config changes.
 
 ---
 
-### 1.4 `meta/`
+**1.4 meta/**
 
 **Purpose:**  
 Defines metadata like author, license, and dependencies.
@@ -145,7 +145,7 @@ galaxy_info:
 
 ---
 
-### 1.5 `tasks/`
+**1.5 tasks/**
 
 **Purpose:**  
 The main logic of the role — the actual automation steps.
@@ -170,7 +170,7 @@ Install and configure the nginx service.
 
 ---
 
-### 1.6 `templates/`
+**1.6 templates/**
 
 **Purpose:**  
 Contains Jinja2 templates rendered with variables.
@@ -191,7 +191,7 @@ server {
 
 ---
 
-### 1.7 `vars/`
+**1.7 vars/**
 
 **Purpose:**  
 Holds internal role-specific variables that should not be overridden.
@@ -206,7 +206,7 @@ nginx_user: www-data
 
 ---
 
-### 1.8 `tests/`
+**1.8 tests/**
 
 **Purpose:**  
 Used to validate that the role works correctly in isolation.
@@ -225,7 +225,7 @@ Run a test playbook before production usage.
 
 ---
 
-### 1.9 `README.md`
+**1.9 README.md**
 
 **Purpose:**  
 Provides documentation for how to use the role.
