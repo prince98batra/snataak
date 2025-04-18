@@ -175,7 +175,7 @@ This will return:
 ansible-inventory -i script.py --list
 ```
 
----
+**Flow Diagram if Using Database for Custom Inventory**
 
 ```
 [ Write Python Script for DB Query ]
