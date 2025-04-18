@@ -47,14 +47,14 @@
 
 ### Step 1: Install Python & pip (If not already installed)
 
-> 1️⃣ **System Update Command**  
+ #### System Update Command
 > Before proceeding, it's **highly recommended** to follow the update instructions from the official documentation.  
-> 👉 **Follow Step 3 here**: [Ubuntu Basic System Commands](https://github.com/snaatak-Downtime-Crew/Documentation/blob/durgesh_scrums_3/common_stack/operating_system/ubuntu/sop/commoncommands/README.md#1-basic-system-commands)
+>  **Follow Step 3 here**: [Ubuntu Basic System Commands](https://github.com/snaatak-Downtime-Crew/Documentation/blob/durgesh_scrums_3/common_stack/operating_system/ubuntu/sop/commoncommands/README.md#1-basic-system-commands)
 >
 > ---
 >
-> 2️⃣ **Install Python-3**  
-> 👉 **Follow Step 3 & 4 here**: [Python3 & python3-pip Installation Commands](https://github.com/snaatak-Downtime-Crew/Documentation/blob/adil_scrums_11/common_stack/application/python/installation/guide/READEME.md#step-3-install-python3)
+> #### Install Python-3 
+>  **Follow Step 3 & 4 here**: [Python3 & python3-pip Installation Commands](https://github.com/snaatak-Downtime-Crew/Documentation/blob/adil_scrums_11/common_stack/application/python/installation/guide/READEME.md#step-3-install-python3)
 >
 > ---
 
