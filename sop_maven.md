@@ -2,18 +2,17 @@
   <img src="https://maven.apache.org/images/maven-logo-black-on-white.png" alt="Apache Maven Logo" width="250"/>
 </p>
 
-
 # SOP: Maven Common & Debugging Commands
 
-## 👤 **Author Information**
-| **Author** | **Created on** | **Version**  | **Comment** | **Reviewer** |
-|------------|----------------|--------------|-------------|--------------|
-| **Prince Batra**   | **14-04-2025**   | **Version 1** | **Internal review** | **Siddharth Pawar** |
-| **Prince Batra**   | **14-04-2025**   | **Version 1.1** | **L0 review** | **Shikha** |
+## **Author Information**
+| **Created**       | **Version** | **Last Modified** | **Author**        | **Level**            | **Reviewer**  |
+|--------------------|-------------|-------------------|-------------------|------------------------|---------------|
+| 14-04-2025         | V1          | 14-04-2025        | Prince Batra    | Internal review        | Siddharth Pawar        |
+| 14-04-2025         | V2          | 17-04-2025        | Prince Batra      | L0 Review | Shikha        |
 
 ---
 
-## 📑 Table of Contents
+## Table of Contents
 
 1. [Introduction](#1-introduction)  
 2. [What is Maven?](#2-what-is-maven)  
@@ -22,9 +21,10 @@
 5. [Example Project Structure](#5-example-java-maven-project-structure)  
 6. [Prerequisites (Install Maven)](#6-prerequisites-install-on-local-system)  
 7. [Commonly Used Maven Commands](#7-commonly-used-maven-commands)
-8. [Debugging & Troubleshooting Commands](#8-debugging--troubleshooting-commands) 
-9. [Contact Information](#contact-information)
-10. [References](#references)
+8. [Debugging & Troubleshooting Commands](#8-debugging--troubleshooting-commands)
+9. [Conclusion](#9-conclusion)
+10. [Contact Information](#contact-information)
+11. [Reference Table](#reference-table)
 
 
 ---
@@ -32,23 +32,6 @@
 ## 1. Introduction
 
 This SOP provides a quick reference to the most commonly used Maven commands and debugging techniques for Java developers. It is meant to simplify daily development tasks such as building, testing, and troubleshooting Maven-based projects in local environments.
-
----
-
-## 2. What is Maven?
-
-- Maven is a build automation tool designed for Java projects.  
-- It helps manage project builds, reporting, documentation, and dependencies.  
-- A central configuration file `pom.xml` manages all settings.
-
----
-
-## 3. Why Use Maven?
-
-- Simplifies project structure and build lifecycle.  
-- Automatically downloads dependencies.  
-- Supports testing, packaging, and deployment in a standardized way.  
-- Makes team collaboration easier with consistent builds.
 
 ---
 
@@ -74,7 +57,7 @@ java/
 
 ## 6. Prerequisites (Install on Local System)
 
-### ✅ Step 1: Install Java (JDK 11 or higher)
+### Step 1: Install Java (JDK 11 or higher)
 
 **Ubuntu:**
 ```bash
@@ -84,7 +67,7 @@ java -version
 ```
 ---
 
-### ✅ Step 2: Install Maven
+### Step 2: Install Maven
 
 **Ubuntu:**
 ```bash
@@ -130,6 +113,12 @@ mvn -v
 
 ---
 
+## 9. Conclusion
+Maven makes it easier to build, test, and manage Java projects.
+With the commands and tips in this guide, you can quickly handle daily tasks and fix common issues.
+
+---
+
 ## **Contact Information**
 | **Name** | **Email Address**        |
 |----------|--------------------------|
@@ -137,7 +126,7 @@ mvn -v
 
 ---
 
-## **References**
+## **Reference Table**
 
 | **Links** | **Overview** |
 |-----------|--------------|
