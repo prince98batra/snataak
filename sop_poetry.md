@@ -27,11 +27,9 @@
 - [Reference Table](#Reference-table)
 ---
 
-## 3. Why Use Poetry
-Using Poetry saves time and avoids common mistakes:
-- It automatically creates virtual environments so your system’s Python setup stays clean.
-- It tracks your installed packages in one file (`pyproject.toml`) and locks their versions in `poetry.lock`.
-- It helps you install, update, and remove packages easily.
+## 1. Introduction
+
+**Poetry** is a simple, all-in-one tool for managing Python projects, dependencies, and environments—making setup and collaboration easy and consistent.
 
 ---
 
