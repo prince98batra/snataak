@@ -6,24 +6,22 @@
 
 ## 👤 **Author Information**
 | **Created**       | **Version** | **Last Modified** | **Author**        | **Level**            | **Reviewer**  |
-|--------------------|-------------|-------------------|-------------------|------------------------|---------------|
-| 18-04-2025         | V1          | 18-04-2025        | Prince Batra    | Internal review        | Siddharth Pawar        |
-| 18-04-2025         | V1          | 18-04-2025        | Prince Batra      | L0 Review | Shikha        |
+|------------------|-------------|-------------------|-------------------|----------------------|---------------|
+| 18-04-2025       | V1          | 18-04-2025        | Prince Batra      | Internal review      | Siddharth Pawar |
+| 18-04-2025       | V1          | 18-04-2025        | Prince Batra      | L0 Review            | Shikha          |
 
 ---
 
 ## 📘 Table of Contents
 
-1. [Purpose of the Document](#1-purpose-of-the-document)
-2. [What is Common Stack, Inventory, and Dynamic Inventory?](#2-what-is-common-stack-inventory-and-dynamic-inventory)
-3. [Why Use Dynamic Inventory in Ansible?](#3-why-use-dynamic-inventory-in-ansible)
-4. [Advantages](#4-advantages)
-5. [Disadvantages](#5-disadvantages)
-6. [Best Practices](#6-best-practices)
-7. [Flow Diagram](#7-flow-diagram)
-8. [Conclusion / Recommendation](#8-conclusion--recommendation)
-9. [Contact Information](#9-contact-information)
-10. [Reference Table](#10-reference-table)
+1. [Purpose of the Document](#1-purpose-of-the-document)  
+2. [Why Use Dynamic Inventory in Ansible?](#2-why-use-dynamic-inventory-in-ansible)  
+3. [Advantages vs Disadvantages](#3-advantages-vs-disadvantages)  
+4. [Best Practices](#4-best-practices)  
+5. [Simple Flow Diagram](#5-simple-flow-diagram)  
+6. [Conclusion / Recommendation](#6-conclusion--recommendation)  
+7. [Contact Information](#7-contact-information)  
+8. [Reference Table](#8-reference-table)  
 
 ---
 
@@ -33,101 +31,73 @@ To provide a clear understanding of how to use Ansible's dynamic inventory syste
 
 ---
 
-## 3. Why Use Dynamic Inventory in Ansible?
+## 2. Why Use Dynamic Inventory in Ansible?
 
-- For environments where infrastructure changes frequently (like cloud).
-- Avoids the need for static IPs or manual host listing.
-- Supports tagging, filtering, and real-time updates.
-- Can integrate multiple sources (e.g., AWS, databases).
-
----
-
-## 4. Advantages
-
-- Automatically updates host lists.
-- Easily scalable with tags or filters.
-- Reduces configuration drift.
-- Compatible with CMDBs and databases.
+- Ideal for dynamic environments (like AWS EC2).
+- Automatically fetches live hosts without manual updates.
+- Supports filtering based on tags or instance states.
+- Can combine multiple inventory sources (e.g., AWS + database).
 
 ---
 
-## 5. Disadvantages
+## 3. Advantages vs Disadvantages
 
-- Requires more setup than static inventory.
-- Needs plugin-specific configuration.
-- May introduce complexity in debugging.
-
----
-
-## 6. Best Practices
-
-- Use **host tags** in cloud platforms to filter relevant machines.
-- Store plugin configuration in a separate inventory directory.
-- Cache inventory results if querying a large number of hosts.
-- Separate your **inventory source logic** from playbook logic.
-- Combine inventory from multiple sources using `ansible-inventory --merge`.
-- Always test your dynamic inventory with `ansible-inventory --list -i inventory_dir/`.
+| **Advantages**                                      | **Disadvantages**                                 |
+|-----------------------------------------------------|---------------------------------------------------|
+| Automatically updates host list                     | Requires more setup than static inventory         |
+| Scales easily with cloud tags and filters           | Plugin-specific configuration needed              |
+| Reduces risk of configuration drift                 | Can be harder to debug due to dynamic nature      |
+| Supports multiple inventory sources (AWS, DB, etc.) | Slightly complex for beginners                    |
 
 ---
 
-## 7. Flow Diagram
+## 4. Best Practices
+
+- Tag instances properly for easier grouping and filtering.
+- Store dynamic inventory files (like `aws_ec2.yml`) in a dedicated inventory directory.
+- Use caching for large infrastructures to improve performance.
+- Keep inventory logic separate from playbook logic.
+- Merge multiple inventories using `ansible-inventory --merge`.
+- Always test your inventory using:
+  ```bash
+  ansible-inventory --list -i inventory_dir/
+  ```
+
+---
+
+## 5. Simple Flow Diagram
 
 ```
-                        +------------------+
-                        |   AWS (EC2)      |
-                        |  Tag-based Hosts |
-                        +------------------+
-                                 |
-                                 v
-                     +------------------------+
-                     | Ansible aws_ec2 Plugin |
-                     +------------------------+
-                                 |
-                                 v
-                        +----------------+
-                        |                |
-                        | Dynamic        |
-                        | Inventory File |
-                        | (aws_ec2.yml)  |
-                        |                |
-                        +----------------+
-                                 ^
-                                 |
-                     +------------------------+
-                     |    Metadata Database    |
-                     | (PostgreSQL / SQLite)   |
-                     +------------------------+
-                                 |
-                                 v
-              +--------------------------------------+
-              |  Custom Python Script (db_inventory) |
-              +--------------------------------------+
-
-                                 |
-                                 v
-                       +--------------------+
-                       |                    |
-                       | Final Inventory    |
-                       | (Merged, Real-Time)|
-                       +--------------------+
-                                 |
-                                 v
-                      +-------------------------+
-                      | Ansible Playbook / Role |
-                      +-------------------------+
+       [ AWS EC2 Instances ]
+                ↓
+    [ Ansible aws_ec2 Plugin ]
+                ↓
+      [ aws_ec2.yml Inventory ]
+                ↓
+  [ Optional: DB + Custom Script ]
+                ↓
+      [ Final Inventory Output ]
+                ↓
+       [ Ansible Playbook ]
 ```
 
 ---
 
-## 8. Conclusion / Recommendation
+## 6. Conclusion / Recommendation
 
-Use Ansible's dynamic inventory to manage changing infrastructure automatically. Combine cloud sources like AWS and metadata stored in databases to ensure that your inventories are always accurate and up to date. Make use of existing roles and modularize configurations for better scalability.
-
----
+Use dynamic inventory to keep your host lists always up-to-date, especially when working in cloud environments. Combine cloud-native inventory (like AWS EC2) with additional sources like databases if needed. Stick to best practices like tagging, separating logic, and caching to get the most reliable and scalable setup.
 
 ---
 
-## 10. Reference Table
+## 7. Contact Information
+
+**Author**: Prince Batra  
+**Email**: prince98batra@gmail.com  
+**GitHub**: [github.com/prince98batra](https://github.com/prince98batra)
+
+---
+
+## 8. Reference Table
 
 | Reference | Link/Detail |
 |----------|--------------|
