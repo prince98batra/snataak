@@ -1,21 +1,7 @@
-Absolutely! Your updated flow is perfect — clean and easy to follow. I'll integrate this flow into the final SOP and restructure the content accordingly. Here's the **complete updated SOP** with:
-
-- Correct TOC numbering  
-- Your **new flow diagram**
-- Combined **advantages/disadvantages** table  
-- A new **Installation + Real Use** section mapped to the flow  
-- Optional DB part clearly marked  
-
----
-
-```markdown
-<p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Ansible_logo.svg/1664px-Ansible_logo.svg.png" alt="Ansible Logo" width="200"/>
-</p>
 
 # Ansible Dynamic Inventory
 
-## 👤 Author Information
+## 👤 Author
 
 | Created       | Version | Last Modified | Author        | Level          | Reviewer         |
 |---------------|---------|---------------|---------------|----------------|------------------|
@@ -24,28 +10,28 @@ Absolutely! Your updated flow is perfect — clean and easy to follow. I'll inte
 
 ---
 
-## 📘 Table of Contents
+## Table of Contents
 
-1. [Purpose of the Document](#1-purpose-of-the-document)  
-2. [Why Use Dynamic Inventory in Ansible?](#2-why-use-dynamic-inventory-in-ansible)  
-3. [Advantages vs Disadvantages](#3-advantages-vs-disadvantages)  
-4. [Best Practices](#4-best-practices)  
-5. [Flow Diagram](#5-flow-diagram)  
-6. [Installing & Configuring Dynamic Inventory](#6-installing--configuring-dynamic-inventory)  
-7. [Using Dynamic Inventory in Real Projects](#7-using-dynamic-inventory-in-real-projects)  
-8. [Conclusion / Recommendation](#8-conclusion--recommendation)  
-9. [Contact Information](#9-contact-information)  
-10. [References](#10-references)
+1. [Introduction](#introduction)  
+2. [Why Use Dynamic Inventory in Ansible?](#why-use-dynamic-inventory-in-ansible)  
+3. [Advantages vs Disadvantages](#advantages-vs-disadvantages)  
+4. [Best Practices](#best-practices)  
+5. [Flow Diagram](#flow-diagram)  
+6. [Installing & Configuring Dynamic Inventory](#installing--configuring-dynamic-inventory-for-cloud-computing-aws)  
+7. [Using Dynamic Inventory in Real Projects](#using-dynamic-inventory-in-real-projects)  
+8. [Conclusion / Recommendation](#conclusion--recommendation)  
+9. [Contact Information](#contact-information)  
+10. [References](#references)
 
 ---
 
-## 1. Purpose of the Document
+## Introduction
 
 To provide a step-by-step SOP for setting up and using Ansible’s dynamic inventory with AWS EC2. It explains how to fetch hostnames, IPs, and tags in real time and optionally combine it with a database or metadata server.
 
 ---
 
-## 2. Why Use Dynamic Inventory in Ansible?
+## Why Use Dynamic Inventory in Ansible?
 
 - Automatically reflects real-time infrastructure changes.  
 - No need to hardcode or manually update IP addresses.  
@@ -55,7 +41,7 @@ To provide a step-by-step SOP for setting up and using Ansible’s dynamic inven
 
 ---
 
-## 3. Advantages vs Disadvantages
+## Advantages vs Disadvantages
 
 | Advantages                               | Disadvantages                          |
 |-----------------------------------------|----------------------------------------|
@@ -66,7 +52,7 @@ To provide a step-by-step SOP for setting up and using Ansible’s dynamic inven
 
 ---
 
-## 4. Best Practices
+## Best Practices
 
 - Use EC2 **Name** and **Environment** tags to group servers logically.  
 - Store inventory YAML files in a separate `inventory/` folder.  
@@ -77,7 +63,7 @@ To provide a step-by-step SOP for setting up and using Ansible’s dynamic inven
 
 ---
 
-## 5. Flow Diagram
+## Flow Diagram
 
 ```
         [ AWS EC2 Instances ]
@@ -95,26 +81,27 @@ To provide a step-by-step SOP for setting up and using Ansible’s dynamic inven
 
 ---
 
-## 6. Installing & Configuring Dynamic Inventory
+## Installing & Configuring Dynamic Inventory For Cloud Computing (AWS)
 
 ### 🔹 Step 1: Install Required Plugin
 Install the AWS dynamic inventory plugin from Ansible Galaxy:
 ```bash
 ansible-galaxy collection install amazon.aws
 ```
+![image](https://github.com/user-attachments/assets/54fe43ae-af21-425e-87d5-6cca130cc841)
 
 ### 🔹 Step 2: Configure AWS Access
 Run the AWS CLI configuration and enter your credentials:
 ```bash
 aws configure
 ```
+![image](https://github.com/user-attachments/assets/28ada497-b7dd-44d7-ae71-b65bd6aaf3de)
+
 This sets:
 - AWS Access Key
 - AWS Secret Key
 - Region (e.g., `ap-south-1`)
 - Output format (`json`)
-
-You can also use an **IAM Role** if Ansible runs from an EC2 instance.
 
 ### 🔹 Step 3: Create `aws_ec2.yml` Inventory File
 
@@ -123,9 +110,9 @@ Create a file at `inventory/aws_ec2.yml`:
 ```yaml
 plugin: amazon.aws.aws_ec2
 regions:
-  - ap-south-1
+  - ap-northeast-1
 filters:
-  tag:Environment: production
+  tag:Name: ansible-test
 keyed_groups:
   - prefix: tag
     key: Tags.Name
@@ -134,6 +121,8 @@ hostnames:
 compose:
   ansible_host: public_ip_address
 ```
+![image](https://github.com/user-attachments/assets/b44f49c2-d4b8-4375-abd0-db6ab2e5b1a1)
+
 
 ### 🔹 Step 4: Test Inventory Output
 
@@ -147,11 +136,13 @@ This will return:
 - Public/private IPs
 - Grouping by tags like `tag_Name_webserver`
 
+![image](https://github.com/user-attachments/assets/0b3350ba-7536-4505-9b86-549fe539a42a)
+
 ---
 
-## 7. Using Dynamic Inventory in Real Projects
+## Using Dynamic Inventory in Real Projects
 
-### ✅ Example Playbook
+### Example Playbook
 
 ```yaml
 - name: Deploy Web Server on EC2
@@ -165,22 +156,22 @@ This will return:
 ```
 
 > This playbook targets all EC2s with tag `Name=webserver`, fetched dynamically.
+--- 
 
-### ✅ Optional: Use Database Inventory (Advanced)
+### Use Database Inventory (Advanced)
 
 You can write a **custom Python script** to query a database (like PostgreSQL) that holds metadata for hosts. Ansible supports executable inventory scripts.
 
-For now, this is optional and can be added later when your infra grows.
 
 ---
 
-## 8. Conclusion / Recommendation
+## Conclusion / Recommendation
 
 Dynamic Inventory in Ansible helps manage cloud infrastructure in real-time by pulling host information directly from AWS. It replaces static IP-based inventories and improves automation, tagging, and scalability. Use optional database sources only if your setup includes metadata outside AWS.
 
 ---
 
-## 9. Contact Information
+## Contact Information
 
 **Author**: Prince Batra  
 **Email**: prince98batra@gmail.com  
@@ -188,7 +179,7 @@ Dynamic Inventory in Ansible helps manage cloud infrastructure in real-time by p
 
 ---
 
-## 10. References
+## References
 
 | Reference                               | Link                                                                 |
 |-----------------------------------------|----------------------------------------------------------------------|
