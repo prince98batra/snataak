@@ -125,12 +125,6 @@ Use Ansible's dynamic inventory to manage changing infrastructure automatically.
 
 ---
 
-## 9. Contact Information
-
-**Author**: Prince Batra  
-**Email**: prince98batra@gmail.com  
-**GitHub**: [github.com/prince98batra](https://github.com/prince98batra)
-
 ---
 
 ## 10. Reference Table
