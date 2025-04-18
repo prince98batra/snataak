@@ -163,6 +163,17 @@ This will return:
 You can write a **custom Python script** to query a database (like PostgreSQL) that holds metadata for hosts. Ansible supports executable inventory scripts.
 
 
+        [ SQLite Database ]
+                ↓
+   [ Python Script to Query Database ]
+                ↓
+   [ Dynamic Inventory Script (Python) ]
+                ↓
+      [ Final Inventory Output (JSON) ]
+                ↓
+       [ Ansible Playbook Execution ]
+
+
 ---
 
 ## Conclusion / Recommendation
