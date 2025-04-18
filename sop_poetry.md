@@ -4,17 +4,15 @@
 ![image](https://th.bing.com/th/id/OIP.u0ITNfG1tfzVyuLcZWPWTAHaD4?w=343&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7)
 
 ## 👤 **Author Information**
-| **Author** | **Created on** | **Version**  | **Comment** | **Reviewer** |
-|------------|----------------|--------------|-------------|--------------|
-| **Prince Batra**   | **15-04-2025**   | **Version 1.1** | **Internal review** | **Siddharth Pawar** |
-| **Prince Batra**   | **15-04-2025**   | **Version 1.1** | **L0 review** | **Shikha** |
+| **Created**       | **Version** | **Last Modified** | **Author**        | **Level**            | **Reviewer**  |
+|--------------------|-------------|-------------------|-------------------|------------------------|---------------|
+| 15-04-2025         | V1          | 15-04-2025        | Prince Batra    | Internal review        | Siddharth Pawar        |
+| 15-04-2025         | V2          | 17-04-2025        | Prince Batra      | L0 Review | Shikha        |
 
 ---
 
-## 📖 Table of Contents    
+## 📖 Table of Contents     
 - [Introduction](#1-introduction)
-- [What is Poetry](#2-What-is-Poetry)
-- [Why Use Poetry](#3-Why-is-Poetry)
 - [Prerequisites](#4-prerequisites)
 - [Step-by-Step Instructions](#5-step-by-step-instructions)  
   - [📍 Step 1: Install Python & pip](#-step-1-install-python--pip-if-not-already-installed)  
@@ -26,18 +24,7 @@
   - [📍 Step 7: Run the Script Using Poetry](#-step-7-run-the-script-using-poetry-running-in-context)
 - [Conclusion](#6-Conclusion)
 - [Contact Information](#Contact-Information)
-- [References](#References)
----
-
-## 1. Introduction
-
-**Poetry** is a simple, all-in-one tool for managing Python projects, dependencies, and environments—making setup and collaboration easy and consistent.
-
----
-
-## 2. What is Poetry
-Poetry is a tool in Python that helps you manage project dependencies (packages), virtual environments, and packaging—all in one place. Instead of manually installing and tracking Python libraries, Poetry handles everything for you using simple commands.
-
+- [Reference Table](#Reference-table)
 ---
 
 ## 3. Why Use Poetry
@@ -57,12 +44,7 @@ Using Poetry saves time and avoids common mistakes:
 
 ### 📍 Step 1: Install Python & pip (If not already installed)
 
-```bash
-sudo apt update
-sudo apt install python3 python3-pip -y
-python3 --version
-pip3 --version
-```
+**Follow Step 3 & 4 here**: [Python3 & python3-pip Installation Commands](https://github.com/snaatak-Downtime-Crew/Documentation/blob/adil_scrums_11/common_stack/application/python/installation/guide/READEME.md#step-3-install-python3)
 This step ensures that Python 3 and pip are installed, which are required before installing Poetry.
 
 ### 📍 Step 2: Install Poetry
@@ -177,7 +159,7 @@ Poetry simplifies Python project management and is perfect for beginners and tea
 
 ---
 
-## **References**
+## **Reference Table**
 | **Links** | **Overview** |
 |---------------|-------------|
 | [Poetry Docs](https://python-poetry.org/docs/) | Guides on using Poetry for dependency management, publishing, and configuration. |
