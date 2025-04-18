@@ -18,7 +18,7 @@
 2. [Prerequisites ](#2-prerequisites)  
 3. [Commonly Used Maven Commands](#3-commonly-used-maven-commands)
 4. [Debugging & Troubleshooting Commands](#4-debugging--troubleshooting-commands)
-5. [Conclusion](#9-conclusion)
+5. [Conclusion](#5-conclusion)
 6. [Contact Information](#contact-information)
 7. [Reference Table](#reference-table)
 
@@ -40,7 +40,7 @@ This SOP provides a quick reference to the most commonly used Maven commands and
 > ---
 
 
-### Step 2: Install Maven
+### Step 2: Install Maven and check version
 
 ```bash
 sudo apt install maven -y
@@ -49,7 +49,7 @@ mvn -v
 
 ---
 
-## **4. Commonly Used Maven Commands**
+## **3. Commonly Used Maven Commands**
 
 ---
 
@@ -71,7 +71,7 @@ mvn -v
 
 ---
 
-## 5. Debugging & Troubleshooting Commands
+## 4. Debugging & Troubleshooting Commands
 
 | Task | Command | Expected Output | Purpose | When to Use |
 |------|---------|-----------------|---------|-------------|
@@ -84,7 +84,7 @@ mvn -v
 
 ---
 
-## 6. Conclusion
+## 5. Conclusion
 Maven makes it easier to build, test, and manage Java projects.
 With the commands and tips in this guide, you can quickly handle daily tasks and fix common issues.
 
