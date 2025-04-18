@@ -14,17 +14,13 @@
 
 ## Table of Contents
 
-1. [Introduction](#1-introduction)  
-2. [What is Maven?](#2-what-is-maven)  
-3. [Why Use Maven?](#3-why-use-maven)  
-4. [How Maven Works](#4-how-maven-works)  
-5. [Example Project Structure](#5-example-java-maven-project-structure)  
-6. [Prerequisites (Install Maven)](#6-prerequisites-install-on-local-system)  
-7. [Commonly Used Maven Commands](#7-commonly-used-maven-commands)
-8. [Debugging & Troubleshooting Commands](#8-debugging--troubleshooting-commands)
-9. [Conclusion](#9-conclusion)
-10. [Contact Information](#contact-information)
-11. [Reference Table](#reference-table)
+1. [Introduction](#1-introduction)    
+2. [Prerequisites ](#2-prerequisites)  
+3. [Commonly Used Maven Commands](#3-commonly-used-maven-commands)
+4. [Debugging & Troubleshooting Commands](#4-debugging--troubleshooting-commands)
+5. [Conclusion](#9-conclusion)
+6. [Contact Information](#contact-information)
+7. [Reference Table](#reference-table)
 
 
 ---
@@ -35,50 +31,25 @@ This SOP provides a quick reference to the most commonly used Maven commands and
 
 ---
 
-## 4. How Maven Works
-
-- Maven follows a build lifecycle with phases like **validate → compile → test → package → verify → install → deploy**.  
-- All configuration lies in the `pom.xml` file.  
-- Code lives inside `src/main/java`, and test files inside `src/test/java`.
-
----
-
-## 5. Example Java Maven Project Structure
-
-```bash
-java/
-├── pom.xml                     # Project Object Model file (Maven's config file)
-└── src/                        # Source folder (contains all project code)
-    └── main/                   # Main application code (not tests)
-        └── java/               # Java source files go here (e.g., .java classes)
-```
-
----
-
-## 6. Prerequisites (Install on Local System)
+## 2. Prerequisites
 
 ### Step 1: Install Java (JDK 11 or higher)
 
-**Ubuntu:**
-```bash
-sudo apt update
-sudo apt install openjdk-17-jdk -y
-java -version
-```
----
+>  **Follow Steps here**: [Ubuntu Basic System Commands](https://github.com/snaatak-Downtime-Crew/Documentation/blob/harsh_scrums_23/common_stack/application/java/installation/guide/README.md#java-installation-steps-ubuntu)
+>
+> ---
+
 
 ### Step 2: Install Maven
 
-**Ubuntu:**
 ```bash
-sudo apt update
 sudo apt install maven -y
 mvn -v
 ```
 
 ---
 
-## **7. Commonly Used Maven Commands**
+## **4. Commonly Used Maven Commands**
 
 ---
 
@@ -100,7 +71,7 @@ mvn -v
 
 ---
 
-## 8. Debugging & Troubleshooting Commands
+## 5. Debugging & Troubleshooting Commands
 
 | Task | Command | Expected Output | Purpose | When to Use |
 |------|---------|-----------------|---------|-------------|
@@ -113,7 +84,7 @@ mvn -v
 
 ---
 
-## 9. Conclusion
+## 6. Conclusion
 Maven makes it easier to build, test, and manage Java projects.
 With the commands and tips in this guide, you can quickly handle daily tasks and fix common issues.
 
