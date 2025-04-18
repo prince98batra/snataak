@@ -1,4 +1,16 @@
-# Common Stack | Ansible | Inventory | Dynamic Inventory
+<p align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Ansible_logo.svg/1664px-Ansible_logo.svg.png" alt="Ansible Logo" width="200"/>
+</p>
+
+# Ansible Dynamic Inventory
+
+## 👤 **Author Information**
+| **Created**       | **Version** | **Last Modified** | **Author**        | **Level**            | **Reviewer**  |
+|--------------------|-------------|-------------------|-------------------|------------------------|---------------|
+| 18-04-2025         | V1          | 18-04-2025        | Prince Batra    | Internal review        | Siddharth Pawar        |
+| 18-04-2025         | V1          | 18-04-2025        | Prince Batra      | L0 Review | Shikha        |
+
+---
 
 ## 📘 Table of Contents
 
@@ -18,14 +30,6 @@
 ## 1. Purpose of the Document
 
 To provide a clear understanding of how to use Ansible's dynamic inventory system with both cloud sources (like AWS) and other sources (like databases). This includes fetching host details, using plugins, and applying roles to configure infrastructure dynamically.
-
----
-
-## 2. What is Common Stack, Inventory, and Dynamic Inventory?
-
-- **Common Stack**: A reusable set of tools and technologies frequently used together. Here, it includes Ansible, AWS, and databases.
-- **Inventory in Ansible**: A file that lists all the hosts you want to manage.
-- **Dynamic Inventory**: A method of generating an inventory dynamically using scripts or plugins to fetch real-time host data.
 
 ---
 
