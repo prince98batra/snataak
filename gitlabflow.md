@@ -45,11 +45,31 @@ GitLab Flow is a Git strategy designed to handle real-world software delivery. I
 
 ## Workflow Diagram
 
-![GitLab Flow Diagram](https://forum.gitlab.com/uploads/default/original/3X/1/2/12c3b1d7d1c9a0e6e8e8b8c5f1f1e9c9a8a8b8c5.png)
+### Git Flow Diagram
 
-*Source: GitLab Forum*
+![Git Flow Diagram](https://wac-cdn.atlassian.com/dam/jcr:8132025f-5f6c-4d9e-9c3e-6f5e4f3e5a3c/03%20Gitflow%20Workflow.svg)
 
-**Explanation**: This diagram illustrates the GitLab Flow, showcasing how code progresses from feature branches to the main branch, and then to staging and production environments. It emphasizes the integration of issue tracking and CI/CD pipelines, ensuring a streamlined development and deployment process.
+
+### Explanation 
+
+Git Flow is a way to manage branches in a clean and organized way. It helps teams work on features, fix bugs, and make releases without confusion. Here's how it works:
+
+- **`main` branch**:  
+  This is the live production version. Only tested and approved code goes here.
+
+- **`develop` branch**:  
+  This is where the latest changes from different features come together before release.
+
+- **`feature/*` branches**:  
+  When starting a new task or feature, create a branch from `develop`. When done, merge it back into `develop`.
+
+- **`release/*` branches**:  
+  These are used to prepare for a new version. You fix small issues, update documentation, etc. Then it's merged into both `main` and `develop`.
+
+- **`hotfix/*` branches**:  
+  For quick fixes in production. These branches come from `main`, and once the issue is fixed, they are merged into both `main` and `develop`.
+
+This structure helps everyone know where to add their work and makes releases safer and more predictable.
 
 ---
 
