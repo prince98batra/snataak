@@ -15,14 +15,14 @@
 - [Introduction](#introduction)  
 - [Prerequisites](#prerequisites)  
 - [Steps to Install](#steps-to-install)  
-  - [1. Install Redis Server](#install-redis-server)  
-  - [2. Enable Redis on Startup](#enable-redis-on-startup)  
-  - [3. Start Redis Service](#start-redis-service)  
-  - [4. Test Redis Connection](#test-redis-connection)  
-  - [5. Basic Redis Configuration & Security Setup](#basic-redis-configuration-and-security-setup)
+  - [1. Install Redis Server](#1-install-redis-server)  
+  - [2. Enable Redis on Startup](#2-enable-redis-on-startup)  
+  - [3. Start Redis Service](#3-start-redis-service)  
+  - [4. Test Redis Connection](#4-test-redis-connection)  
+  - [5. Basic Redis Configuration & Security Setup](#5-basic-redis-configuration-and-security-setup)
   - [6. Connect to Redis with Password Authentication](#6-connect-to-redis-with-password-authentication)    
 - [Conclusion](#conclusion)  
-- [Contacts](#contacts)  
+- [Contact Information](#contact-information)  
 - [Reference Table](#reference-table)  
 
 ---
@@ -85,7 +85,7 @@ redis-cli ping
 
 ![image](https://github.com/user-attachments/assets/3e454a70-e470-44e5-844e-c15a9dcb2d46)
 
-### **5. Basic Redis Configuration & Security Setup**
+### **5. Basic Redis Configuration And Security Setup**
 
 1. **Open the Redis Configuration File:**
    To configure Redis, open the `redis.conf` file located in `/etc/redis/redis.conf`:
@@ -151,6 +151,5 @@ Redis is a high-performance, in-memory key-value store, ideal for POC projects t
 |---------------------|----------------------------------------------|----------------------------------------------|
 | Redis Official Site | [https://redis.io](https://redis.io)          | Official website with documentation and guides |
 | Redis GitHub Repo   | [https://github.com/redis/redis](https://github.com/redis/redis) | Source code and release updates              |
-| Redis CLI Docs      | [https://redis.io/docs/latest/cli](https://redis.io/docs/latest/cli) | Reference for using the Redis command line    |
 | RedisInsight        | [https://www.redis.com/redis-enterprise/redis-insight](https://www.redis.com/redis-enterprise/redis-insight) | GUI tool for visualizing and debugging Redis  |
 
