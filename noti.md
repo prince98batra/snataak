@@ -3,21 +3,21 @@
 ## **Author Information**
 | Created     | Last updated | Version | Author         | Level             | Reviewer        |
 |-------------|--------------|---------|----------------|-------------------|-----------------|
-| 24-04-2025  | 25-04-2025   | V2      | Prince Batra   | Internal Review   | Siddharth Pawar |
+| 25-04-2025  | 25-04-2025   | V     | Prince Batra   | Internal Review   | Siddharth Pawar |
 
 ---
 
 ## **Table of Contents**
 
 1. [Introduction](#introduction)  
-2. [Pre-requisites](#pre-requisites)  
-3. [System Requirements](#system-requirements)  
-4. [Dependencies](#dependencies)  
-5. [Architecture](#architecture)  
-6. [Workflow Diagram](#workflow-diagram)  
-7. [Step-by-step Installation of Notification Application](#step-by-step-installation-of-notification-application)  
-8. [Troubleshooting](#troubleshooting)  
-9. [FAQs](#faqs)  
+2. [Why Need This Application?](#why-need-this-application)  
+3. [What Problems Does It Resolve?](#what-problems-does-it-resolve)  
+4. [Pre-requisites](#pre-requisites)  
+5. [System Requirements](#system-requirements)  
+6. [Dependencies](#dependencies)  
+7. [Architecture](#architecture)  
+8. [Workflow Diagram](#workflow-diagram)  
+9. [Troubleshooting](#troubleshooting)  
 10. [Contact Information](#contact-information)  
 11. [Reference Table](#reference-table)  
 
@@ -25,6 +25,26 @@
 
 ## **Introduction**
 The Notification Application is designed to send scheduled email notifications to employees whose data is fetched from an employee database. It enables automatic hourly email reminders using a configured SMTP service.
+
+---
+
+## Why Need This Application?
+
+- To automate the notification process for informing employees about their salary slip generation.  
+- To integrate seamlessly with internal APIs like the Employee API and Salary API.  
+- To reduce manual effort required by HR or admin teams in sending repetitive emails.  
+- To ensure timely and consistent communication to all employees.  
+- To improve efficiency by using a scheduled Python script with SMTP integration.
+
+---
+
+## What Problems Does It Resolve?
+
+- Eliminates the need for manual tracking and emailing about salary slips.  
+- Prevents delays or missed notifications to employees.  
+- Solves the issue of scalability—one notification service handles all employees automatically.  
+- Reduces human error in communicating sensitive financial information.  
+- Offers centralized and configurable control over email content and scheduling.
 
 ---
 
@@ -53,11 +73,11 @@ The system needs enough resources to run Python scripts, Elasticsearch, and hand
 ## **Dependencies**
 
 ### Run Time Dependencies
-| Name           | Version  | Description                            | Why It’s Needed                                           |
-|----------------|----------|----------------------------------------|----------------------------------------------------------|
-| Python         | 3.10+    | Main programming language              | Executes logic, handles querying and email sending       |
-| pip            | latest   | For managing Python packages           | Manages dependencies                                     |
-| Elasticsearch  | 7.17.17  | Used for indexing and querying employee data from the employee database    | Fetches and queries employee data to send notifications     |
+| Name           | Version  | Description                            | 
+|----------------|----------|----------------------------------------|
+| Python         | 3.10+    | Main programming language              | 
+| pip            | latest   | For managing Python packages           | 
+| Elasticsearch  | 7.17.17  | Used for indexing and querying employee data from the employee database    |
 
 ### Other Dependencies
 | Name           | Description                                 | Why It’s Needed                                         |
@@ -76,14 +96,15 @@ The system needs enough resources to run Python scripts, Elasticsearch, and hand
 
 ---
 
-## **Workflow Diagram**
+## **Architecture**
 
-![1](https://github.com/user-attachments/assets/ae5d95a8-3914-40ea-bd3a-3aac571df734)
+![image](https://github.com/user-attachments/assets/ae8c7bcd-d6fc-43d0-9980-af33e58f32c2)
 
 ---
 
-## **Step-by-step Installation of Notification Application**
-Refer to this document for installation instructions: [Installation Guide Link Here](#)
+## **Workflow Diagram**
+
+![1](https://github.com/user-attachments/assets/ae5d95a8-3914-40ea-bd3a-3aac571df734)
 
 ---
 
@@ -99,19 +120,6 @@ Refer to this document for installation instructions: [Installation Guide Link H
 
 ---
 
-## **FAQs**
-
-- **Q: Can I use something other than Gmail?**  
-  A: Yes. SendGrid or other SMTP providers can be configured.
-
-- **Q: Can the schedule be changed from hourly?**  
-  A: Yes, adjust the cron or scheduler logic in your Python script.
-
-- **Q: Do I need Docker?**  
-  A: No, the app runs fine without Docker. Docker support is optional.
-
----
-
 ## **Contact Information**
 | Name         | Email Address                                |
 |--------------|----------------------------------------------|
@@ -119,12 +127,13 @@ Refer to this document for installation instructions: [Installation Guide Link H
 
 ---
 
-## **Reference Table**
-| Title                              | Link                                                                   |
-|------------------------------------|------------------------------------------------------------------------|
-| Ubuntu Official Docs               | https://help.ubuntu.com                                               |
-| Elasticsearch Installation Guide   | https://www.elastic.co/downloads/                                     |
-| Gmail App Password Setup           | https://support.google.com/accounts/answer/185833                     |
-| SendGrid SMTP Guide                | https://docs.sendgrid.com/for-developers/sending-email/smtp-api/     |
+### **Reference Table**
 
----
+| Title                              | Link                                                                 | Description                                                                 |
+|------------------------------------|----------------------------------------------------------------------|-----------------------------------------------------------------------------|
+| Elasticsearch Installation Guide   | [elastic.co](https://www.elastic.co/downloads/elasticsearch)         | Installation guide for Elasticsearch, used to store and query employee data. |
+| Gmail App Password Setup           | [google.com](https://support.google.com/accounts/answer/185833)      | Instructions to generate app password for Gmail SMTP usage.               |
+| pip Documentation                  | [pip.pypa.io](https://pip.pypa.io/en/stable/installation/)           | Guide for installing and using pip, Python's package manager.              |
+| Elasticsearch Python Client Docs  | [elastic.co](https://elasticsearch-py.readthedocs.io/en/v7.17.17/)   | Official Python client documentation for interacting with Elasticsearch.  |
+| SMTP Overview                      | [wikipedia.org](https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol) | Background on how SMTP works for sending email.                     |
+
