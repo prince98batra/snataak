@@ -13,27 +13,29 @@
 2. [Pre-requisites](#pre-requisites)  
 3. [System Requirements](#system-requirements)  
 4. [Dependencies](#dependencies)  
-5. [Component Explanation](#component-explanation)  
-6. [Architecture](#architecture)  
-7. [Dataflow Diagram](#dataflow-diagram)  
-8. [Step-by-step Installation of Notification Application](#step-by-step-installation-of-notification-application)  
-9. [Troubleshooting](#troubleshooting)  
-10. [FAQs](#faqs)  
-11. [Contact Information](#contact-information)  
-12. [References](#references)  
+5. [Architecture](#architecture)  
+6. [Workflow Diagram](#workflow-diagram)  
+7. [Step-by-step Installation of Notification Application](#step-by-step-installation-of-notification-application)  
+8. [Troubleshooting](#troubleshooting)  
+9. [FAQs](#faqs)  
+10. [Contact Information](#contact-information)  
+11. [Reference Table](#reference-table)  
 
 ---
 
 ## **Introduction**
-The Notification Application is designed to send scheduled email notifications to employees whose data is stored in an Elasticsearch index. It enables automatic hourly email reminders using a configured SMTP service, typically Gmail or SendGrid.
+The Notification Application is designed to send scheduled email notifications to employees whose data is fetched from an employee database. It enables automatic hourly email reminders using a configured SMTP service.
 
 ---
 
 ## **Pre-requisites**
 
-- A valid SMTP email configuration (Gmail App Password OR SendGrid SMTP).
-- An Elasticsearch instance with an `employee-management` index containing employee emails.
-
+- A valid SMTP email configuration.
+- Elasticsearch installation with an employee database containing employee emails.
+- Python 3.8+ for scripting the notification logic.  
+- pip 20+ for managing Python dependencies.  
+- Operating System: Ubuntu 22.04 for system compatibility.
+  
 ---
 
 ## **System Requirements**
@@ -50,68 +52,33 @@ The system needs enough resources to run Python scripts, Elasticsearch, and hand
 
 ## **Dependencies**
 
-### Run Time Dependency
-| Name           | Version  | Description                            |
-|----------------|----------|----------------------------------------|
-| Python         | 3.10+    | Main programming language               |
-| pip            | latest   | For managing Python packages            |
-| Elasticsearch  | 7.17.17  | Stores and retrieves employee data      |
-
-**Python**  
-Python serves as the backbone for scripting the notification logic and querying Elasticsearch.
-
-**Elasticsearch**
-It stores employee data, including email addresses. The notification script queries it every hour to check for active employees.
+### Run Time Dependencies
+| Name           | Version  | Description                            | Why It’s Needed                                           |
+|----------------|----------|----------------------------------------|----------------------------------------------------------|
+| Python         | 3.10+    | Main programming language              | Executes logic, handles querying and email sending       |
+| pip            | latest   | For managing Python packages           | Manages dependencies                                     |
+| Elasticsearch  | 7.17.17  | Used for indexing and querying employee data from the employee database    | Fetches and queries employee data to send notifications     |
 
 ### Other Dependencies
-| Name           | Description                                 |
-|----------------|---------------------------------------------|
-| SMTP Email     | Used for sending scheduled notifications    |
+| Name           | Description                                 | Why It’s Needed                                         |
+|----------------|---------------------------------------------|--------------------------------------------------------|
+| SMTP Email     | Used for sending scheduled notifications    | Sends email notifications                               |
 
-**SMTP Server**  
-Used to send scheduled emails. Can be configured using Gmail SMTP (with app password) or services like SendGrid (with API key).
+**Important Ports**
+| Inbound Traffic | Description                      |
+|------------------|----------------------------------|
+| 9200             | Elasticsearch HTTP Interface     |
 
-### Important Ports
-| Inbound Traffic | Description                  |
-|------------------|------------------------------|
-| 9200             | Elasticsearch HTTP Interface |
-
-### Others
+**Others**
 | Configuration         | Description                           |
 |------------------------|---------------------------------------|
 | App password / API key | Required for authenticating with SMTP |
 
 ---
 
-## **Component needed**
-
-
-
----
-
-### Components Summary Table
-
-| Component       | Why It’s Needed                                           |
-|------------------|-----------------------------------------------------------|
-| Python           | Executes logic, handles querying and email sending        |
-| Elasticsearch    | Stores employee email data queried for notifications      |
-| SMTP (Gmail/SG)  | Sends email notifications                                 |
-
----
-
 ## **Workflow Diagram**
 
 ![1](https://github.com/user-attachments/assets/ae5d95a8-3914-40ea-bd3a-3aac571df734)
- 
----
-
-## **Dataflow Diagram**
-
-1. Employee data is added to Elasticsearch (`employee-management` index).
-2. Notification script queries it hourly.
-3. Email content is dynamically generated.
-4. Email is sent using configured SMTP credentials.
-
 
 ---
 
@@ -152,7 +119,7 @@ Refer to this document for installation instructions: [Installation Guide Link H
 
 ---
 
-## **References**
+## **Reference Table**
 | Title                              | Link                                                                   |
 |------------------------------------|------------------------------------------------------------------------|
 | Ubuntu Official Docs               | https://help.ubuntu.com                                               |
@@ -160,3 +127,4 @@ Refer to this document for installation instructions: [Installation Guide Link H
 | Gmail App Password Setup           | https://support.google.com/accounts/answer/185833                     |
 | SendGrid SMTP Guide                | https://docs.sendgrid.com/for-developers/sending-email/smtp-api/     |
 
+---
