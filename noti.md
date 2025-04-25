@@ -44,7 +44,6 @@ The Notification Application is designed to send scheduled email notifications t
 | Disk                    | 8 GB                |
 | OS                      | Ubuntu 22.04        |
 
-> **Why these specs?**  
 The system needs enough resources to run Python scripts, Elasticsearch, and handle periodic email sending without timeouts or latency. A minimum 2 vCPU and 4 GB RAM setup ensures smooth functioning even with moderate load.
 
 ---
@@ -58,10 +57,19 @@ The system needs enough resources to run Python scripts, Elasticsearch, and hand
 | pip            | latest   | For managing Python packages            |
 | Elasticsearch  | 7.17.17  | Stores and retrieves employee data      |
 
+**Python**  
+Python serves as the backbone for scripting the notification logic and querying Elasticsearch.
+
+**Elasticsearch**
+It stores employee data, including email addresses. The notification script queries it every hour to check for active employees.
+
 ### Other Dependencies
 | Name           | Description                                 |
 |----------------|---------------------------------------------|
 | SMTP Email     | Used for sending scheduled notifications    |
+
+**SMTP Server**  
+Used to send scheduled emails. Can be configured using Gmail SMTP (with app password) or services like SendGrid (with API key).
 
 ### Important Ports
 | Inbound Traffic | Description                  |
@@ -77,14 +85,7 @@ The system needs enough resources to run Python scripts, Elasticsearch, and hand
 
 ## **Component needed**
 
-### 1. Python  
-Python serves as the backbone for scripting the notification logic and querying Elasticsearch.
 
-### 2. Elasticsearch  
-It stores employee data, including email addresses. The notification script queries it every hour to check for active employees.
-
-### 3. SMTP Server  
-Used to send scheduled emails. Can be configured using Gmail SMTP (with app password) or services like SendGrid (with API key).
 
 ---
 
@@ -98,25 +99,10 @@ Used to send scheduled emails. Can be configured using Gmail SMTP (with app pass
 
 ---
 
-## **Architecture**
+## **Workflow Diagram**
 
-### Image Version
-![Architecture Flow](attachment:Architecture_Flow.png)  
-
-
-### Text Version (Arrow Format):
-```
-[User] 
-   ↓  
-[Elasticsearch: employee-management Index]  
-   ↓  
-[Notification Script (Python)]  
-   ↓  
-[SMTP Email Server (Gmail / SendGrid)]  
-   ↓  
-[Recipient's Email Inbox]
-```
-
+![1](https://github.com/user-attachments/assets/ae5d95a8-3914-40ea-bd3a-3aac571df734)
+ 
 ---
 
 ## **Dataflow Diagram**
