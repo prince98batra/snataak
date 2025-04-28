@@ -1,28 +1,30 @@
-# GitLab Flow Documentation
+# GitLab Flow  Branching Strategy Documentation
 
 <p align="center">
-  <img src="https://about.gitlab.com/images/press/logo/png/gitlab-logo-500.png" width="200" alt="GitLab Logo"/>
+  <img src="https://about.gitlab.com/images/press/logo/png/gitlab-logo-500.png" width="150" alt="GitLab Logo"/>
 </p>
 
 ---
 
 ## **Author Information**
-
-| Created       | Last Updated   | Version | Author         | Level             | Reviewer         |
-|---------------|----------------|---------|----------------|-------------------|------------------|
-| 28-04-2025    | 28-04-2025     | V1    | Prince Batra   | Internal Review   | Siddharth Pawar  |
+| Created     | Last updated | Version | Author         | Level | Reviewer |
+|-------------|--------------|---------|----------------|-------|----------|
+| 28-04-2025  | 28-04-2025   | V1     | Prince Batra   | Internal Review | Siddharth Pawar |
+| 28-04-2025  | 28-04-2025   | V2      | Prince Batra   | L0 Review        | Shikha |
+| 28-04-2025  | 28-04-2025 |  V3    | Prince Batra  |     L1 Review    | Kirti Nehra   |
 
 ---
 
 ## Table of Contents
-- [Introduction](#introduction)  
-- [Why GitLab Flow](#why-gitlab-flow)  
-- [Workflow Diagram](#workflow-diagram)  
-- [How GitLab Flow Works](#how-gitlab-flow-works)  
-- [Advantages vs Disadvantages](#advantages-vs-disadvantages)  
-- [Best Practices](#best-practices)  
-- [Conclusion](#conclusion)  
-- [Contact Information](#contact-information)  
+- [Introduction](#introduction)
+- [What is GitLab Flow?](#what-is-gitlab-flow)
+- [Why GitLab Flow?](#why-gitlab-flow)
+- [Workflow Diagram](#workflow-diagram)
+- [GitLab Flow Branching Strategy](#gitlab-flow-branching-strategy)
+- [Advantages vs Disadvantages](#advantages-vs-disadvantages)
+- [Best Practices](#best-practices)
+- [Conclusion](#conclusion)
+- [Contact Information](#contact-information)
 - [References](#references)
 
 ---
@@ -33,7 +35,17 @@ GitLab Flow is a Git strategy designed to handle real-world software delivery. I
 
 ---
 
-## Why GitLab Flow
+## What is GitLab Flow?
+
+- GitLab Flow is a simple and practical way to manage code using Git.
+- It connects code changes with issue tracking and automated deployments (CI/CD).
+- It matches real-world environments like development, staging, and production.
+- It supports faster, safer releases by keeping the process clean and organized.
+- Compared to older models like GitFlow, it is easier and better suited for modern teams.
+
+---
+
+## Why GitLab Flow?
 
 - **Real-world alignment**: GitLab Flow is tailored for real-world development processes, accommodating various environments like development, staging, and production.
 - **Issue integration**: It seamlessly integrates with issue tracking, allowing developers to link code changes directly to issues for better traceability.
@@ -45,79 +57,42 @@ GitLab Flow is a Git strategy designed to handle real-world software delivery. I
 
 ## Workflow Diagram
 
-### Git Flow Diagram
-
-![Git Flow Diagram](https://wac-cdn.atlassian.com/dam/jcr:8132025f-5f6c-4d9e-9c3e-6f5e4f3e5a3c/03%20Gitflow%20Workflow.svg)
-
-
-### Explanation 
-
-Git Flow is a way to manage branches in a clean and organized way. It helps teams work on features, fix bugs, and make releases without confusion. Here's how it works:
-
-- **`main` branch**:  
-  This is the live production version. Only tested and approved code goes here.
-
-- **`develop` branch**:  
-  This is where the latest changes from different features come together before release.
-
-- **`feature/*` branches**:  
-  When starting a new task or feature, create a branch from `develop`. When done, merge it back into `develop`.
-
-- **`release/*` branches**:  
-  These are used to prepare for a new version. You fix small issues, update documentation, etc. Then it's merged into both `main` and `develop`.
-
-- **`hotfix/*` branches**:  
-  For quick fixes in production. These branches come from `main`, and once the issue is fixed, they are merged into both `main` and `develop`.
-
-This structure helps everyone know where to add their work and makes releases safer and more predictable.
+![image](https://github.com/user-attachments/assets/d9869352-905e-40e5-964a-1f50fc6092c6)
 
 ---
 
-## How GitLab Flow Works
+## GitLab Flow Branching Strategy 
 
-- **Create a new feature branch**
-  ```bash
-  git checkout -b feature/user-login
-  ```
-  → Creates a new branch from the current branch (`main`) for working on the login feature.
+- **Master**:  
+  - Base branch for development.
+  - Features are branched from and merged back into Master.
 
-- **Commit changes**
-  ```bash
-  git add .
-  git commit -m "Add login feature"
-  ```
-  → Stages and saves your changes with a message.
+- **Feature Branch**:  
+  - Created from Master for new features.
+  - Merged back to Master when complete.
 
-- **Push your branch to GitLab**
-  ```bash
-  git push origin feature/user-login
-  ```
-  → Uploads your feature branch to GitLab so others can see it.
+- **Staging**:  
+  - Receives code from Master for pre-production testing.
+  - Bugfix branches are created from Staging.
 
-- **Create a Merge Request (MR)**  
-  → On GitLab, open a Merge Request to review and merge the feature into `main`.
+- **Bugfix Branch**:  
+  - Created from Staging to fix issues found during testing.
+  - Merged back into Staging.
 
-- **Merge and deploy to staging**
-  ```bash
-  git checkout staging
-  git merge main
-  git push origin staging
-  ```
-  → Moves the updated code to the staging environment for testing.
+- **Production**:  
+  - Final live environment.
+  - Updated from Staging after successful tests.
+  - Hotfixes are created directly from Production if urgent issues happen.
 
-- **Create a hotfix (if needed)**
-  ```bash
-  git checkout production
-  git checkout -b hotfix/fix-login-bug
-  ```
-  → Creates a quick branch to fix bugs directly from the production branch.
+- **Hotfix Branch**:  
+  - Created from Production to fix critical live issues.
+  - Merged back into Production, Master, and Staging.
 
-- **Commit and merge the hotfix**
-  ```bash
-  git commit -am "Fix login issue"
-  git push origin hotfix/fix-login-bug
-  ```
-  → Applies and shares the fix with your team for review and merging.
+**Flow Summary:**
+- Master → Staging → Production
+- Features from Master.
+- Bugfixes from Staging.
+- Hotfixes from Production.
 
 ---
 
