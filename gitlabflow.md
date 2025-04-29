@@ -1,4 +1,4 @@
-[# GitLab Flow  Branching Strategy Documentation
+# GitLab Flow  Branching Strategy Documentation
 
 <p align="center">
   <img src="https://about.gitlab.com/images/press/logo/png/gitlab-logo-500.png" width="150" alt="GitLab Logo"/>
