@@ -1,9 +1,15 @@
 ## **Notification Application Document**
 
+<p align="center">
+  <img src="https://thaka.bing.com/th/id/OIP.g9SdunVmLqkrgtyX2RvRHgHaHa?w=173&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" width="150">
+</p>
+
 ## **Author Information**
-| Created     | Last updated | Version | Author         | Level             | Reviewer        |
-|-------------|--------------|---------|----------------|-------------------|-----------------|
-| 25-04-2025  | 25-04-2025   | V     | Prince Batra   | Internal Review   | Siddharth Pawar |
+| Created     | Last updated | Version | Author         | Level | Reviewer |
+|-------------|--------------|---------|----------------|-------|----------|
+| 25-04-2025  | 28-04-2025   | V1.1     | Prince Batra   | Internal Review | Siddharth Pawar |
+| 25-04-2025  | 28-04-2025   | V2      | Prince Batra   | L0 Review        | Shikha |
+| 25-04-2025  | 28-04-2025 |  V3    | Prince Batra  |     L1 Review    | Kirti Nehra   |
 
 ---
 
@@ -13,10 +19,10 @@
 2. [Why Need This Application?](#why-need-this-application)  
 3. [What Problems Does It Resolve?](#what-problems-does-it-resolve)  
 4. [Pre-requisites](#pre-requisites)  
-5. [System Requirements](#system-requirements)  
-6. [Dependencies](#dependencies)  
-7. [Architecture](#architecture)  
-8. [Workflow Diagram](#workflow-diagram)  
+5. [Dependencies](#dependencies)  
+6. [Architecture](#architecture)  
+7. [Workflow Diagram](#workflow-diagram)
+8. [Step-by-step Setup of Notification API](#step-by-step-setup-of-notification-api)
 9. [Troubleshooting](#troubleshooting)  
 10. [Contact Information](#contact-information)  
 11. [Reference Table](#reference-table)  
@@ -58,18 +64,6 @@ The Notification Application is designed to send scheduled email notifications t
   
 ---
 
-## **System Requirements**
-| Hardware Specifications | Recommended Minimum |
-|-------------------------|---------------------|
-| Processor               | 2 vCPU              |
-| RAM                     | 4 GB                |
-| Disk                    | 8 GB                |
-| OS                      | Ubuntu 22.04        |
-
-The system needs enough resources to run Python scripts, Elasticsearch, and handle periodic email sending without timeouts or latency. A minimum 2 vCPU and 4 GB RAM setup ensures smooth functioning even with moderate load.
-
----
-
 ## **Dependencies**
 
 ### Run Time Dependencies
@@ -108,6 +102,12 @@ The system needs enough resources to run Python scripts, Elasticsearch, and hand
 
 ---
 
+## **Step-by-step Setup of Notification API**
+
+>  **Follow step here**: [Refer this POC](https://github.com/snaatak-Downtime-Crew/Documentation/blob/SCRUMS-74-Prateek/ot-ms-understanding/notification/poc/README.md#step-by-step-installation)
+
+---
+
 ## **Troubleshooting**
 
 | Problem                     | Solution                                                                 |
@@ -136,4 +136,3 @@ The system needs enough resources to run Python scripts, Elasticsearch, and hand
 | pip Documentation                  | [pip.pypa.io](https://pip.pypa.io/en/stable/installation/)           | Guide for installing and using pip, Python's package manager.              |
 | Elasticsearch Python Client Docs  | [elastic.co](https://elasticsearch-py.readthedocs.io/en/v7.17.17/)   | Official Python client documentation for interacting with Elasticsearch.  |
 | SMTP Overview                      | [wikipedia.org](https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol) | Background on how SMTP works for sending email.                     |
-
