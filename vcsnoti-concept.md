@@ -9,7 +9,7 @@
 ## **Author Information**
 | Created     | Last updated | Version | Author         | Level | Reviewer |
 |-------------|--------------|---------|----------------|-------|----------|
-| 29-04-2025  | 29-04-2025   | V1     | Prince Batra   | Internal Review | Siddharth Pawar |
+| 29-04-2025  | 29-04-2025   | V1.1    | Prince Batra   | Internal Review | Siddharth Pawar |
 | 29-04-2025  | 29-04-2025   | V2      | Prince Batra   | L0 Review        | Shikha |
 | 29-04-2025  | 29-04-2025 |  V3    | Prince Batra  |     L1 Review    | Kirti Nehra   |
 
@@ -30,10 +30,7 @@
 
 ## Introduction
 
-In modern software development, keeping the team **informed in real-time** is essential.  
-Version Control Systems (VCS) like GitLab, GitHub, and Bitbucket offer **Notifications** to alert users about important activities happening in repositories.
-
-Notifications help teams collaborate better, fix problems faster, and keep projects organized.
+This document outlines the Notification Strategy in Version Control Systems (VCS) like GitLab and GitHub. It explains what VCS notifications are, why they are needed, what events trigger them, who they matter to, and how they are delivered. The goal is to provide a clear and practical understanding of how notifications enhance collaboration, transparency, and development workflow.
 
 ---
 
@@ -105,8 +102,7 @@ Notifications help teams collaborate better, fix problems faster, and keep proje
 
 ## Conclusion
 
-Notifications in Version Control Systems keep teams connected and projects moving forward efficiently.  
-By sending alerts for critical events like code changes, pipeline results, and security issues, notifications **improve visibility**, **prevent errors**, and **speed up collaboration**.
+This document explained the notification strategy in Version Control Systems (VCS), highlighting why notifications are important, which events trigger them, who relies on them, and how they are delivered. A clear notification system ensures that the right stakeholders are informed at the right time, enabling smooth collaboration, faster response to issues, and better project tracking across the development lifecycle.
 
 ---
 
@@ -125,4 +121,3 @@ By sending alerts for critical events like code changes, pipeline results, and s
 | GitLab Notifications             | [Visit](https://docs.gitlab.com/ee/user/profile/notifications.html)                        | How GitLab handles notifications for users and groups.                      |
 | GitHub Notifications             | [Visit](https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github) | Setting up and managing notifications on GitHub.                            |
 | GitLab Webhooks                  | [Visit](https://docs.gitlab.com/ee/user/project/integrations/webhooks.html)                 | Sending GitLab events to external services using webhooks.                  |
-
