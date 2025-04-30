@@ -1,11 +1,16 @@
 # Database Version Control Strategy Document
 
+<p align="center">
+  <img src="https://cdn-icons-png.flaticon.com/512/689/689360.png" width="150">
+</p>
+
 ## **Author Information**
 
 | Created     | Last Updated | Version | Author         | Level           | Reviewer         |
 |-------------|--------------|---------|----------------|------------------|------------------|
 | 30-04-2025  | 30-04-2025   | V1      | Prince Batra   | Internal Review | Siddharth Pawar  |
-
+| 30-04-2025  | 30-04-2025   | V2      | Prince Batra   | L0 Review        | Shikha |
+| 30-04-2025  | 30-04-2025 |  V3    | Prince Batra  |     L1 Review    | Kirti Nehra   |
 ---
 
 ## **Table of Contents**
@@ -61,13 +66,17 @@ This document explains how to manage database changes in an organized and safe w
 
 ## **Tool Comparison**
 
-| Tool        | Best For                                   | How It Works Simply                          | Pros                                         | Cons                                     |
-|-------------|---------------------------------------------|-----------------------------------------------|----------------------------------------------|------------------------------------------|
-| **Flyway**      | Small to mid-sized teams                    | Uses numbered files to make changes           | Easy to start, simple setup                  | Cannot undo changes easily               |
-| **Liquibase**   | Medium to large teams needing control       | Uses named files and can undo changes         | Supports undo, tracks more details           | Slightly more complex to use             |
-| **Alembic**     | Teams working with Python                   | Uses small scripts to apply changes           | Good for Python projects                     | Only for Python users                    |
-| **DBMaestro**   | Big companies with rules and permissions    | Manages changes through a central dashboard   | Good for secure teams, many features         | Paid software, harder for beginners      |
-| **Liquigraph**  | Teams using Neo4j (graph database)          | Works with Neo4j queries and changes          | Built for graph database                     | Not for regular database types           |
+
+| Feature                     | **Liquibase**         | **Flyway**                          | **Alembic**                         | **DBMaestro**                         | **Liquigraph**                       |
+|-----------------------------|----------------------------------------|-------------------------------------|-------------------------------------|----------------------------------------|---------------------------------------|
+| **Supports Rollback**       | Yes                                    | No                                  | No (manual only)                    | Yes                                   | No                                    |
+| **Supports Many Databases** | Yes (most relational DBs)              | Yes                                  | Yes                                  | Yes (enterprise DBs)                  | No (only Neo4j)                      |
+| **Team Collaboration**      | Yes, integrates with Git               | Limited (file-based)                | Limited (script-based)              | Strong (dashboard & roles)            | Limited to Neo4j users                |
+| **Easy to Use**             | Medium (some learning needed)          | Easy                                 | Easy for Python developers          | Hard (enterprise-focused)             | Medium (Neo4j-specific)              |
+| **Free to Use**             | Yes (Community Edition)                | Yes                                  | Yes                                  | No (paid only)                        | Yes                                  |
+| **Best For**                | Medium to large teams needing control  | Small teams, simple SQL changes     | Python-based projects               | Enterprises needing high control      | Neo4j-based projects only             |
+
+    
 
 ---
 
