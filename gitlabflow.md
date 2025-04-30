@@ -144,6 +144,3 @@ GitLab Flow provides a smart and effective way to manage development and deliver
 | GitLab Branching Models          | [Visit](https://docs.gitlab.com/ee/topics/gitlab_flow.html#branching-models)                       | Different ways to manage branches in GitLab Flow                             |
 | GitLab Issues                    | [Visit](https://docs.gitlab.com/ee/user/project/issues/)                                           | Use issues to manage and track tasks                                         |
 | GitLab Merge Requests            | [Visit](https://docs.gitlab.com/ee/user/project/merge_requests/)                                   | Learn to submit code for review and merging through MRs                      |
-
----
-](https://github.com/snaatak-Downtime-Crew/Documentation/blob/SCRUMS-102-PRINCE/vcs_design%20+%20poc/branching%20strategy/gitlab%20flow/README.md#advantages-vs-disadvantages)
