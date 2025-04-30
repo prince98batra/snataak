@@ -1,17 +1,22 @@
 ## **GitHub features Document**
 
+<p align="center">
+  <img src="https://miro.medium.com/v2/resize:fit:1125/1*E-TJsd6C1rwWMiiLJt5xxA.png" width="300" alt="logo">
+</p>
 
 ## **Author Information**
-
-| Created     | Last updated | Version | Author         | Level | Reviewer        |
-|-------------|--------------|---------|----------------|-------|-----------------|
-| 26-04-2025  | 26-04-2025    | V1    | Prince Batra  | Internal Review | Siddharth Pawar |
+| Created     | Last updated | Version | Author         | Level | Reviewer |
+|-------------|--------------|---------|----------------|-------|----------|
+| 26-04-2025  | 28-04-2025   | V1.1     | Prince Batra   | Internal Review | Siddharth Pawar |
+| 26-04-2025  | 28-04-2025   | V2      | Prince Batra   | L0 Review        | Shikha |
+| 26-04-2025  | 28-04-2025 |  V3    | Prince Batra  |     L1 Review    | Kirti Nehra   |
 
 
 ## Table of Contents
 
 - [Introduction](#introduction)
 - [What is Git?](#what-is-git)
+- [Why Git?](#why-git)
 - [Key Features of Git](#key-features-of-git)
 - [Steps to Install and Configure Git](#steps-to-install-and-configure-git)
 - [GitHub Features](#github-features)
@@ -43,44 +48,28 @@ Git is designed to be fast, efficient, and secure, making it the backbone for mo
 
 ---
 
+## Why Git?
+
+- **Work Offline**: Every developer has a complete copy of the repository and can work without an internet connection.
+- **Smooth Collaboration**: Developers can work in parallel, merge changes easily, and manage code conflicts.
+- **Secure Versioning**: Git ensures all changes are tracked and cannot be lost or corrupted.
+- **Fast Performance**: Git is optimized to handle everything from small to very large projects efficiently.
+
+---
+
 ## Key Features of Git
 
-- **Distributed Version Control**: Every developer has a full copy of the repository, enabling work offline.
-- **Branching and Merging**: Create separate branches for features or bug fixes and merge them when ready.
-- **Data Integrity**: Every change is checksummed and stored securely.
-- **Speed and Performance**: Git operations like commits, branches, merges, and diffs are optimized for performance.
-- **Lightweight Branching**: Branching is cheap and easy, enabling quick context switching.
-- **Staging Area**: Allows fine-grained control over which changes are committed.
+- **Distributed Version Control**: Manage code locally with full repository copies.
+- **Branching and Merging**: Easily manage development and feature workflows.
+- **Data Integrity**: Protects data with secure checksums and versioning.
+- **Lightweight Branching**: Quickly switch between different work contexts.
+- **Staging Area**: Select specific changes to include before committing.
 
 ---
 
 ## Steps to Install and Configure Git
 
-### Install Git
-
-```bash
-# Update package index
-sudo apt update
-
-# Install Git
-sudo apt install git -y
-
-# Verify installation
-git --version
-```
-
-### Basic Configuration
-
-```bash
-# Set your name
-git config --global user.name "Your Name"
-
-# Set your email
-git config --global user.email "your.email@example.com"
-
-# Verify configuration
-git config --list
-```
+>  **Follow step here**: [Refer this document](https://github.com/snaatak-Downtime-Crew/Documentation/blob/SCRUMS-96-YUVRAJ/vcs_design%20%2B%20poc/features%20of%20vcs/detail%20document/README.md#how-to-setupinstall-github)
 
 ---
 
@@ -88,48 +77,15 @@ git config --list
 
 GitHub builds on Git’s capabilities, providing a web-based interface with additional features such as repositories, collaboration tools, and project management capabilities. Here’s a detailed look at the most important GitHub features.
 
-### GitHub Repository
+### **GitHub Repository**
 
 A GitHub repository is where all project files and their revision history are stored. Repositories can be either public or private. You can create a repository directly on GitHub or push an existing Git repository to GitHub. Once a repository is created, developers can clone it to their local machine, work on it, and push changes back to GitHub.
-
-**Common Commands:**
-
-```bash
-# Initialize a new repository locally
-git init
-
-# Clone an existing GitHub repository
-git clone https://github.com/username/repository-name.git
-
-# Push changes to GitHub
-git push -u origin main
-```
-
-Repositories allow teams to collaborate, review changes, and track the project's entire history.
-
----
 
 ### Branching and Collaboration
 
 Branching allows multiple developers to work on different features or fixes independently, without affecting the main codebase. GitHub simplifies collaboration by allowing users to create and manage branches within a repository.
 
-**Common Commands:**
-
-```bash
-# Create a new branch
-git branch feature-branch-name
-
-# Switch to the branch
-git checkout feature-branch-name
-
-# Create and switch at once
-git checkout -b feature-branch-name
-
-# Push branch to GitHub
-git push origin feature-branch-name
-```
-
-Branches allow safe experimentation. After development, changes can be merged into the main branch via pull requests.
+>  **Follow Steps here**: [Refer this blog](https://www.codecademy.com/learn/learn-git-branching-and-collaboration/modules/git-teamwork/cheatsheet)
 
 ---
 
@@ -137,24 +93,9 @@ Branches allow safe experimentation. After development, changes can be merged in
 
 Pull requests (PRs) are one of the most powerful collaboration tools in GitHub. A pull request is created to propose changes from one branch to another, typically from a feature branch to the main branch. The PR facilitates code review, discussion, and integration before the code is merged into the main branch.
 
-**Steps to Create a Pull Request:**
+>  **Follow Steps here**: [Refer this blog](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)
 
-1. Push your branch to GitHub.
-2. Open the repository on GitHub.
-3. Click "Compare & pull request" next to your branch.
-4. Review the changes and add a title and description.
-5. Assign reviewers if needed.
-6. Click "Create pull request".
-
-Pull Requests support code review, discussion, and integration checks before merging.
-
-**Real-Life Example:**  
-Suppose you are working on a new feature called "Add user profile page" on a branch feature/user-profile. Once completed, you push your branch and open a Pull Request.  
-- Team members review your changes.
-- They may suggest improvements like code optimization or better error handling.
-- After approvals, your branch gets merged into the main branch, updating the live project.
-
-**Reason:**  
+**Use case**  
 PRs maintain **code quality**, **team collaboration**, and **traceability of changes**.
 
 ---
@@ -163,23 +104,9 @@ PRs maintain **code quality**, **team collaboration**, and **traceability of cha
 
 GitHub Issues are used to track tasks, bugs, enhancements, and other important conversations. They can be assigned to users, labeled for easy categorization, and linked to pull requests.
 
-**Steps to Create an Issue:**
+>  **Follow Steps here**: [Refer this blog](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues)
 
-1. Go to the "Issues" tab in the repository.
-2. Click "New Issue".
-3. Fill in the title and a detailed description.
-4. Optionally assign people, labels, and projects.
-
-Issues promote clear communication and structured project management.
-
-**Real-Life Example:**  
-If a user finds that the login page fails when using special characters in a password, you create an Issue titled:  
-"Login page breaks when special characters are entered."  
-- Assign a developer.
-- Set a priority label (e.g., High Priority).
-- Track progress until it’s fixed.
-
-**Reason:**  
+**Use case:**  
 Issues ensure that **project work is documented**, **organized**, and **can be prioritized** easily.
 
 ---
@@ -188,21 +115,9 @@ Issues ensure that **project work is documented**, **organized**, and **can be p
 
 GitHub Actions enables you to automate workflows for CI/CD directly in GitHub. You can define workflows in YAML files, which allow you to automatically build, test, and deploy your code.
 
-**Key Points:**
+>  **Follow Steps here**: [Refer this blog](https://github.com/features/actions)
 
-- Workflows are defined in YAML files under `.github/workflows/`.
-- Actions are triggered by events like `push`, `pull_request`, or schedules (`cron` jobs).
-- Provides seamless integration with other tools like AWS, Azure, and Docker.
-
-No example YAML is included here as per requirement.
-
-**Workflow Behavior:**  
-- Developer pushes code →  
-- GitHub Action triggers →  
-- Runs npm test →  
-- If success, deploys via SSH to AWS EC2 server.
-
-**Reason:**  
+**Use case:**  
 GitHub Actions help with **automation**, **continuous integration**, and **continuous deployment (CI/CD)**, **saving manual effort and reducing human error**.
 
 ---
@@ -211,23 +126,9 @@ GitHub Actions help with **automation**, **continuous integration**, and **conti
 
 The .gitignore file specifies which files or directories Git should ignore. This prevents unnecessary files, such as build artifacts or sensitive data, from being tracked in version control.
 
-**Steps to Create:**
+>  **Follow Steps here**: [Refer this blog](https://docs.github.com/en/get-started/git-basics/ignoring-files)
 
-1. Create a file named `.gitignore` at the root of your project.
-2. List patterns of files/folders to ignore.
-
-**Real-Life Example:**  
-In a Python project, your application creates a __pycache__/ directory that contains compiled .pyc files.  
-To prevent these from being pushed to GitHub, you add this line to .gitignore:
-
-__pycache__/
-*.pyc
-.env
-
-
-This ensures that only the important source code is tracked by Git.
-
-**Reason:**  
+**Use case:**  
 Using .gitignore keeps the repository **clean**, **secure**, and **focused only on essential files** required for the project.
 
 ---
@@ -236,36 +137,9 @@ Using .gitignore keeps the repository **clean**, **secure**, and **focused only 
 
 Forking allows you to create your own copy of someone else’s project, enabling you to work on it independently. Once changes are made, you can create a pull request to suggest your changes to the original project.
 
-**Steps to Fork and Pull:**
+>  **Follow Steps here**: [Refer this blog](https://medium.com/@tonibenn/github-forking-pull-requests-23e08530176d)
 
-1. Go to the repository you want to fork.
-2. Click on the "Fork" button (top right).
-3. Clone your forked repository:
-
-```bash
-git clone https://github.com/your-username/forked-repo.git
-```
-
-4. Add the original repository as upstream:
-
-```bash
-git remote add upstream https://github.com/original-owner/original-repo.git
-```
-
-5. Pull changes from the original repository:
-
-```bash
-git pull upstream main
-```
-
-Forking enables independent development and contribution to projects without direct access.
-
-**When to Use:**  
-- When contributing to an open-source project you do not have direct write access to.
-- When you want to experiment independently without affecting the original project.
-- To stay updated with new changes in the original repository.
-
-**Real-Life Example:**  
+**Use Case:**  
 Suppose you want to contribute to a public "Employee Management System" project on GitHub.  
 You **fork** it to your account and **clone** it locally:
 
@@ -306,4 +180,3 @@ Git and GitHub together form a powerful ecosystem for version control, collabora
 | GitHub Docs                 | [https://docs.github.com](https://docs.github.com) | Comprehensive documentation for using GitHub features and tools  |
 | GitHub CLI                  | [https://cli.github.com](https://cli.github.com)  | GitHub Command Line Interface for interacting with repositories  |
 | Git Ignore Guidelines       | [https://git-scm.com/docs/gitignore](https://git-scm.com/docs/gitignore) | Official guide on configuring `.gitignore` files                  |
-
