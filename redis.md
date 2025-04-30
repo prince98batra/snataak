@@ -5,15 +5,19 @@
 </p>
 
 ## **Author Information**
+| Created     | Last updated | Version | Author         | Level | Reviewer |
+|-------------|--------------|---------|----------------|-------|----------|
+| 25-04-2025  | 25-04-2025  | V1     | Prince Batra   | Internal Review | Siddharth Pawar |
+| 25-04-2025  | 25-04-2025   | V2      | Prince Batra   | L0 Review        | Shikha |
+| 25-04-2025  | 25-04-2025 |  V3    | Prince Batra  |     L1 Review    | Kirti Nehra   |
 
-| Created     | Last updated | Version | Author         | Level | Reviewer        |
-|-------------|--------------|---------|----------------|-------|-----------------|
-| 25-04-2025  | 25-04-2025    | V1    | Prince Batra  | Internal Review | Siddharth Pawar |
 
 ## Table of Contents
 
 - [Introduction](#introduction)  
-- [Prerequisites](#prerequisites)  
+- [Prerequisites](#prerequisites)
+- [System Requirements](#system-requirements)  
+- [Important Ports](#important-ports)  
 - [Steps to Install](#steps-to-install)  
   - [1. Install Redis Server](#1-install-redis-server)  
   - [2. Enable Redis on Startup](#2-enable-redis-on-startup)  
@@ -39,6 +43,26 @@ This document outlines the evaluation and setup process for Redis, a high-perfor
 |----------------|-----------------------------------------|
 | OS/Platform    | Ubuntu 20.04 or later                   |
 | Redis Version  | Latest stable version of Redis          |
+
+---
+
+## **System Requirements**
+
+| **Requirement**           | **Recommended (Single Redis Node Setup)**                   |
+|---------------------------|-------------------------------------------------------------|
+| **Processor** | Dual-Core                  |
+| **RAM**                    | **4 GB** (Minimum to ensure stable performance)             |
+| **Disk Space (ROM)**       | **10 GB** (Sufficient for Redis binaries, logs, and RDB/AOF files) |
+| **Operating System**       | **Ubuntu 22.04 LTS** (Preferred) / Any modern Linux distro  |
+
+---
+
+## **Important Ports**
+
+| **Port** | **Description**                                                           |
+|----------|----------------------------------------------------------------------------|
+| 6379     | Default port used by Redis for client connections.                         |
+| 26379    | Port used by Redis Sentinel for high availability and failover monitoring. |
 
 ---
 
@@ -111,7 +135,7 @@ redis-cli ping
 3. **Restart Redis Service:**
    To apply the changes, restart the Redis server:
 
-   >  **Follow Step 1 here**: [Restart a service](https://github.com/snaatak-Downtime-Crew/Documentation/blob/main/common_stack/operating_system/ubuntu/sop/services/README.md#systemctl-commands-explained)
+   >  **Follow Step 3 here**: [Restart a service](https://github.com/snaatak-Downtime-Crew/Documentation/blob/main/common_stack/operating_system/ubuntu/sop/services/README.md#systemctl-commands-explained)
 
 **Use Service name as "redis-server"**
 
@@ -152,4 +176,3 @@ Redis is a high-performance, in-memory key-value store, ideal for POC projects t
 | Redis Official Site | [https://redis.io](https://redis.io)          | Official website with documentation and guides |
 | Redis GitHub Repo   | [https://github.com/redis/redis](https://github.com/redis/redis) | Source code and release updates              |
 | RedisInsight        | [https://www.redis.com/redis-enterprise/redis-insight](https://www.redis.com/redis-enterprise/redis-insight) | GUI tool for visualizing and debugging Redis  |
-
