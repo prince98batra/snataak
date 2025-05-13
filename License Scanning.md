@@ -24,6 +24,7 @@
 * [Advantages vs Disadvantages](#advantages-vs-disadvantages)
 * [Best Practices](#best-practices)
 * [Recommendation](#recommendation)
+* [License Scanning POC](#license-scanning-poc)
 * [Conclusion](#conclusion)
 * [Contact Information](#contact-information)
 * [References](#references)
@@ -130,6 +131,12 @@ We recommend using **FOSSA** as the license scanning tool for our organization.
 | **Policy Management**      | Lets you define and enforce licensing policies                    |
 | **Developer-Friendly**     | Offers feedback during pull requests or builds                    |
 | **Trusted by Enterprises** | Used by many companies for reliable license and security scanning |
+
+---
+
+## **License Scanning POC**
+
+Refer to this link for "Step-by-Step Instructions" of the License Scanning Document.
 
 ---
 
