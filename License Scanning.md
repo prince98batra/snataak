@@ -1,4 +1,4 @@
-# **License Scanning Strategy Document**
+# **License Scanning Document**
 
 <p align="center">
   <img src="https://as1.ftcdn.net/jpg/01/03/58/34/1000_F_103583422_LlVd7SOAdF6HQwj6YwxRfe5hKV9OCpQN.jpg" width="300" alt="License Scanning Logo">
