@@ -60,12 +60,14 @@ This document explains what license scanning is and why it is important. It help
 
 ```mermaid
 flowchart TD
-    A[Source Code Repo] --> B[CI Pipeline]
-    B --> C[License Scanner Tool]
-    C --> D[Generate Report]
-    D --> E{Compliant?}
-    E -- Yes --> F[Proceed to Build & Release]
-    E -- No --> G[Block Build / Notify Developer]
+    A[Source Code ] --> B[Initialize FOSSA]
+    B --> C[Run License Scan ]
+    C --> D[View Report on Dashboard]
+    D --> E{Any License Issues?}
+    E -- Yes --> F[Resolve Issues]
+    E -- No --> G[Run fossa test]
+    F --> G
+    G --> H[License Scan Complete]
 ```
 
 ---
