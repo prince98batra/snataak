@@ -9,7 +9,9 @@
 
 | Created    | Last updated | Version | Author       | Level           | Reviewer        |
 | ---------- | ------------ | ------- | ------------ | --------------- | --------------- |
-| 16-05-2025 | 16-05-2025   | V1    | Prince Batra | Internal Review | Siddharth Pawar |
+| 14-05-2025 | 14-05-2025   | V1    | Prince Batra | Internal Review | Siddharth Pawar |
+| 14-05-2025  | 14-05-2025   | V2      | Prince Batra   | L0 Review        | Shikha |
+| 14-05-2025  | 14-05-2025 |  V3    | Prince Batra  |     L1 Review    | Kirti Nehra   |
 
 ---
 
@@ -21,6 +23,7 @@
 - [Workflow Diagram](#workflow-diagram)
 - [Advantages vs Disadvantages](#advantages-vs-disadvantages)
 - [Best Practices](#best-practices)
+- [Cost Reduction Measures Using Cost Allocation Tags](#cost-reduction-measures-using-cost-allocation-tags)
 - [Conclusion](#conclusion)
 - [Contact Information](#contact-information)
 - [Reference Table](#reference-table)
@@ -58,10 +61,13 @@ Using Cost Allocation Tags enables organizations to:
 
 ## Workflow Diagram
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/4f251cd3-45fc-4e6d-9cfb-35fc2c23f422" alt="AWS Logo" width="600"/>
-</p>
-
+```mermaid
+flowchart TD
+A[AWS Resource Created] --> B[Apply Tags]
+B --> C[Enable Tags in Billing Console]
+C --> D[Tags Appear in Cost Explorer & Reports]
+D --> E[Analyze Costs by Tags]
+```
 
 ---
 
@@ -85,6 +91,17 @@ Using Cost Allocation Tags enables organizations to:
 | Automate tag application              | Use IaC (e.g., Terraform) or tagging policies to reduce human error    |
 | Monitor for missing or incorrect tags | Set up regular audits using AWS Config or custom scripts               |
 | Educate teams on tagging standards    | Ensure all resource creators understand and follow tagging conventions |
+
+---
+
+## **Cost Reduction Measures Using Cost Allocation Tags**
+
+| **Measure**                      | **Description**                                                                                                    |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| **Find Unused Resources**        | Use tags to filter out idle or stopped resources like EC2 instances or EBS volumes that are still generating cost. |
+| **Control Non-Production Costs** | Tag resources by environment (e.g., `Dev`, `Test`) and schedule them to stop during non-working hours.             |
+| **Track High-Spend Areas**       | Tags like `Project` or `Team` help identify which departments or workloads are using the most resources.           |
+| **Set Cost Alerts Using Tags**   | Integrate AWS Budgets with tags to send alerts when spending exceeds limits for specific teams or environments.    |
 
 ---
 
