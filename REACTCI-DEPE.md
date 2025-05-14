@@ -1,4 +1,4 @@
-# **Dependency Scanning for React CI Checks**
+# **React CI: Dependency Scanning Document**
 
 <p align="center">
   <img src="https://i0.wp.com/beyondxscratch.com/wp-content/uploads/2018/08/dc.png?resize=351%2C111&ssl=1" alt="Dependency Scanning" width="400" height="130" />
@@ -10,6 +10,8 @@
 | Created    | Last Updated | Version | Author       | Level           | Reviewer        |
 | ---------- | ------------ | ------- | ------------ | --------------- | --------------- |
 | 14-05-2025 | 14-05-2025   | V1      | Prince Batra | Internal Review | Siddharth Pawar |
+| 14-05-2025 | 14-05-2025   | V2      | Prince Batra | L0 Review       | Shikha          |
+| 14-05-2025 | 14-05-2025   | V3      | Prince Batra | L1 Review       | Kirti Nehra     |
 
 ---
 
