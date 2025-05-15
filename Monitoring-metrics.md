@@ -1,12 +1,16 @@
 # **Jenkins Monitoring Metrics Documentation**
 
-![62a73678223343fbc2207cef](https://github.com/user-attachments/assets/cf1847cd-e431-4fc2-a8e9-5a784e3a446c)
+<p align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Jenkins_logo.svg" width="150">
+</p>
 
 ## **Author Information**
 
 | Created    | Last Updated | Version | Author       | Level           | Reviewer        |
 | ---------- | ------------ | ------- | ------------ | --------------- | --------------- |
-| 14-04-2025 | 14-05-2025   | V1    | Prince Batra | Internal Review | Siddharth Pawar |
+| 15-05-2025 | 15-05-2025   | V1      | Prince Batra | Internal Review | Siddharth Pawar |
+| 15-05-2025 | 15-05-2025   | V2      | Prince Batra | L0 Review       | Shikha          |
+| 15-05-2025 | 15-05-2025   | V3      | Prince Batra | L1 Review       | Kirti Nehra     |
 
 ---
 
@@ -15,10 +19,10 @@
 * [Introduction](#introduction)
 * [What are Jenkins Monitoring Metrics?](#what-are-jenkins-monitoring-metrics)
 * [Why Monitor Jenkins Metrics?](#why-monitor-jenkins-metrics)
+* [Workflow Diagram](#workflow-diagram)
 * [Types of Metrics to Monitor](#types-of-metrics-to-monitor)
 * [Advantages vs Disadvantages](#advantages-vs-disadvantages)
 * [Best Practices](#best-practices)
-* [Workflow Diagram](#workflow-diagram)
 * [Conclusion](#conclusion)
 * [Contact Information](#contact-information)
 * [References](#references)
@@ -52,6 +56,34 @@ Monitoring these metrics ensures that Jenkins runs smoothly, offers performance 
 * **Improved Troubleshooting** – Data-driven insights aid in quicker identification and resolution of failures or errors.
 * **Better Resource Management** – Monitoring resource usage helps in scaling Jenkins infrastructure according to demand.
 * **Increased Reliability** – Tracking key metrics ensures the continuous availability of Jenkins, minimizing downtime and failure.
+
+---
+
+## **Workflow Diagram**
+
+```mermaid
+flowchart TD
+    A[Monitor Build Duration]
+    B[Identify Slow Jobs]
+    C[Monitor Success/Failure]
+    D[Track Failures]
+    E[Jenkins Job]
+    F[Monitor Resource Usage]
+    G[Resource Optimization]
+    H[Alert System]
+    I[Send Alerts for Action]
+
+    E --> A
+    E --> C
+    E --> F
+    A --> B
+    C --> D
+    F --> G
+    B --> H
+    D --> H
+    G --> H
+    H --> I
+```
 
 ---
 
@@ -94,14 +126,6 @@ Monitoring these metrics ensures that Jenkins runs smoothly, offers performance 
 
 ---
 
-## **Workflow Diagram**
-
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/4571c78e-8199-488d-8dbb-aa29857489fe" width="1100"/>
-</p>
-
----
-
 ## **Conclusion**
 
 This document concludes that monitoring Jenkins metrics is essential for optimizing build efficiency, improving troubleshooting, and scaling Jenkins infrastructure effectively. It emphasizes the importance of tracking key metrics and following best practices to maintain a robust CI/CD pipeline.
@@ -118,8 +142,8 @@ This document concludes that monitoring Jenkins metrics is essential for optimiz
 
 ## **References**
 
-| **Title**                          | **Link**                                             |
-| ---------------------------------- | ---------------------------------------------------- |
-| Prometheus Documentation           | [Visit](https://prometheus.io/docs/)                 |
-| Grafana Documentation              | [Visit](https://grafana.com/docs/)                   |
-| Jenkins Metrics Plugin             | [Visit](https://plugins.jenkins.io/metrics/)         |
+| **Title**                         | **Link**                                                  |
+|----------------------------------|-----------------------------------------------------------|
+| Jenkins Official Monitoring Guide | [https://www.jenkins.io/doc/book/system-administration/monitoring/](https://www.jenkins.io/doc/book/system-administration/monitoring/) |
+| Jenkins Metrics Plugin            | [https://plugins.jenkins.io/metrics/](https://plugins.jenkins.io/metrics/) |
+
