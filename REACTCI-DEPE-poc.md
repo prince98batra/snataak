@@ -18,7 +18,7 @@
 
 * [1. Introduction](#1-introduction)
 * [2. Prerequisites](#2-prerequisites)
-* [3. Snyk Vulnerability Scanning Guide](#3-snyk-vulnerability-scanning-guide)
+* [Dependency Scanning Document](#3-dependency-scanning-document)
 * [4. Step-by-Step Instructions](#4-step-by-step-instructions)
 
   * [4.1 Install and Authenticate Snyk](#41-install-and-authenticate-snyk)
@@ -46,9 +46,9 @@ This POC demonstrates how to use **Snyk** to detect and report known vulnerabili
 
 ---
 
-### **3. Snyk Vulnerability Scanning Guide**
+### **3. Dependency Scanning Document**
 
-Refer to the documentation for [“What is Vulnerability Scanning”, “Why Use Snyk”, “Available Tools”, “Tool Comparison”, “Advantages vs Disadvantages”, “Best Practices”, and “Recommendation”]()
+Refer to this link for ["What is Dependency Scanning", "Why Use Dependency Scanning", "Workflow Diagram", "Available Tools", "Tool Comparison", "Advantages vs Disadvantages", and "Best Practices"](https://github.com/snaatak-Downtime-Crew/Documentation/blob/SCRUMS-155-PRINCE/application-ci/checks/react/dependency-scanning/documentation/README.md).
 
 ---
 
