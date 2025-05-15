@@ -137,7 +137,8 @@ We recommend using **Snyk** for dependency scanning in React CI Repository.
 
 ## **Dependency Scanning POC**
 
-Refer to this link for "Step-by-Step Instructions" for integrating Snyk in React CI workflows.
+Refer to this link for ["Step-by-Step Instructions"](https://github.com/snaatak-Downtime-Crew/Documentation/blob/SCRUMS-155-PRINCE/application-ci/checks/react/dependency-scanning/poc/README.md) for integrating Snyk in React CI workflows
+
 
 ---
 
