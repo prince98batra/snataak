@@ -140,7 +140,7 @@ We recommend using **Bandit** for Python CI bugs analysis, especially for teams 
 
 ## **Python CI Checks Bugs Analysis POC**
 
-Refer to this link for ["Step-by-Step Instructions"](https://github.com/snaatak-Downtime-Crew/Documentation/blob/SCRUMS-155-PRINCE/application-ci/checks/python/python-bug-analysis/poc/README.md) for integrating Bandit in Python CI Bugs Analysis workflows.
+Refer to this link for ["Step-by-Step Instructions"](https://github.com/snaatak-Downtime-Crew/Documentation/blob/SCRUMS-164-PRINCE/application-ci/checks/python/bugs-analysis/poc/README.md) for integrating Bandit in Python CI Bugs Analysis workflows.
 
 ## **Conclusion**
 
