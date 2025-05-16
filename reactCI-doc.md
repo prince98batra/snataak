@@ -4,6 +4,8 @@
   <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python CI" width="150" height="150" />
 </p>
 
+---
+
 ## **Author Information**
 
 | Created    | Last Updated | Version | Author       | Level           | Reviewer        |
@@ -25,6 +27,7 @@
 * [Advantages vs Disadvantages](#advantages-vs-disadvantages)
 * [Best Practices](#best-practices)
 * [Recommendation](#recommendation)
+* [Python CI Checks Bugs Analysis POC](#python-ci-checks-bugs-analysis-poc)
 * [Conclusion](#conclusion)
 * [Contact Information](#contact-information)
 * [References](#references)
@@ -95,7 +98,6 @@ flowchart TD
 | Pylint    | Code analysis + linting    | Medium        | Style + code errors       | Console/CI logs  | Detailed linting and error reports    |
 | SonarQube | Comprehensive code quality | Complex       | Bugs, vulnerabilities     | Web dashboard    | Enterprise-level code quality metrics |
 
-
 ---
 
 ## **Advantages vs Disadvantages**
@@ -126,22 +128,26 @@ flowchart TD
 
 ## **Recommendation**
 
-We recommend using **Pytest** for Python CI bugs analysis because it provides a balanced combination of simplicity, extensibility, and detailed bug detection.
+We recommend using **Bandit** for Python CI bugs analysis, especially for teams focused on **security vulnerability detection** within their Python codebases.
 
-| Reason               | Pytest Advantage                                              |
-| -------------------- | ------------------------------------------------------------- |
-| **Ease of Use**      | Simple to set up and run from the terminal                    |
-| **Extensibility**    | Supports fixtures, plugins, and a wide ecosystem              |
-| **Rich Reporting**   | Offers multiple reporting formats (console, JUnit XML, HTML)  |
-| **Active Community** | Well-supported with frequent updates and a large user base    |
-| **CI/CD Friendly**   | Integrates seamlessly with Jenkins, GitHub Actions, GitLab CI |
-| **Fast Feedback**    | Runs tests quickly providing immediate feedback to developers |
+| Reason               | Bandit Advantage                                                        |
+| -------------------- | ----------------------------------------------------------------------- |
+| **Security Focused** | Designed specifically to identify common security issues in Python code |
+| **Lightweight**      | Easy to install and run as part of a CI pipeline                        |
+| **CI Integration**   | Works well with Jenkins, GitHub Actions, and other CI tools             |
+| **Customizable**     | Supports plugin-based configuration and filtering of results            |
+| **Open Source**      | Actively maintained and community-supported                             |
+| **Fast Execution**   | Provides quick feedback on potential security flaws                     |
 
 ---
 
+## **Python CI Checks Bugs Analysis POC**
+
+Refer to this link for ["Step-by-Step Instructions"](https://github.com/snaatak-Downtime-Crew/Documentation/blob/SCRUMS-155-PRINCE/application-ci/checks/python/python-bug-analysis/poc/README.md) for integrating Bandit in Python CI Bugs Analysis workflows.
+
 ## **Conclusion**
 
-This document highlights key Python CI bug analysis tools and their role in catching bugs early. Integrating static analysis with testing ensures higher code quality and security. Pytest is recommended for its ease of use and strong testing capabilities, helping maintain reliable Python codebases.
+This document highlights key Python CI bug analysis tools and their role in catching bugs early. Bandit is currently recommended for its focus on identifying security vulnerabilities, ease of CI integration, and ability to provide immediate, actionable insights for secure development.
 
 ---
 
