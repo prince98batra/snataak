@@ -47,7 +47,7 @@ This POC demonstrates how to use **Bandit**, a Python security static analysis t
 
 ### **3. Python CI Checks Bugs Analysis Document**
 
-Refer to this link for ["What is Python CI Bugs Analysis?", "Why Use Python CI Bugs Analysis?", "Workflow Diagram", "Available Tools", "Tool Comparison", "Advantages vs Disadvantages", and "Best Practices".]()
+Refer to this link for ["What is Python CI Bugs Analysis?", "Why Use Python CI Bugs Analysis?", "Workflow Diagram", "Available Tools", "Tool Comparison", "Advantages vs Disadvantages", and "Best Practices".](https://github.com/snaatak-Downtime-Crew/Documentation/blob/SCRUMS-164-PRINCE/application-ci/checks/python/bugs-analysis/documentation/README.md)
 
 ---
 
