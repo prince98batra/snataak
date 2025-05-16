@@ -1,10 +1,8 @@
 # **Python CI Checks Bugs Analysis Document**
 
 <p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python CI" width="150" height="150" />
+  <img src="https://cdn3.iconfinder.com/data/icons/colourful-seo/512/06-512.png" alt="Bug Analysis Icon" width="170" />
 </p>
-
----
 
 ## **Author Information**
 
@@ -83,7 +81,6 @@ flowchart TD
 * **Mypy** – Static type checker for Python, useful for detecting type-related bugs.
 * **Pylint** – Comprehensive linter with configurable rules and reports.
 * **SonarQube** – Platform that provides static code analysis, bug detection, and quality metrics.
-* **GitHub Actions / Jenkins / GitLab CI** – Platforms to integrate and automate Python CI pipelines.
 
 ---
 
