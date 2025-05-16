@@ -1,11 +1,7 @@
-Got it! Here’s your **Bandit Setup and Usage POC** in the same professional, clean format you provided for the React CI Dependency Scanning POC:
-
----
-
-# **Bandit Security Scan: Python Project POC**
+# **Python CI Checks Bugs Analysis Document**
 
 <p align="center">
-  <img src="https://bandit.readthedocs.io/en/latest/_images/bandit_logo.png" alt="Bandit Logo" width="250" />
+  <img src="https://cdn3.iconfinder.com/data/icons/colourful-seo/512/06-512.png" alt="Bug Analysis Icon" width="170" />
 </p>
 
 **Author Information**
@@ -13,6 +9,8 @@ Got it! Here’s your **Bandit Setup and Usage POC** in the same professional, c
 | Created    | Last Updated | Version | Author       | Level           | Reviewer        |
 | ---------- | ------------ | ------- | ------------ | --------------- | --------------- |
 | 16-05-2025 | 16-05-2025   | V1      | Prince Batra | Internal Review | Siddharth Pawar |
+| 16-05-2025 | 16-05-2025   | V2      | Prince Batra | L0 Review       | Shikha          |
+| 16-05-2025 | 16-05-2025   | V3      | Prince Batra | L1 Review       | Kirti Nehra     |
 
 ---
 
@@ -20,15 +18,14 @@ Got it! Here’s your **Bandit Setup and Usage POC** in the same professional, c
 
 * [1. Introduction](#1-introduction)
 * [2. Prerequisites](#2-prerequisites)
-* [3. Bandit Scan Document](#3-bandit-scan-document)
+* [3. Python CI Checks Bugs Analysis Document](#3-python-ci-checks-bugs-analysis-document)
 * [4. Step-by-Step Instructions](#4-step-by-step-instructions)
 
   * [4.1 Install Bandit](#41-install-bandit)
   * [4.2 Run Bandit with Terminal Output](#42-run-bandit-with-terminal-output)
-  * [4.3 Run Bandit and Save HTML Report](#43-run-bandit-and-save-html-report)
-  * [4.4 Manage Multiple Reports](#44-manage-multiple-reports)
-  * [4.5 Serve Reports via HTTP](#45-serve-reports-via-http)
-  * [4.6 Access Reports from Browser](#46-access-reports-from-browser)
+  * [4.3 Manage Reports for Attendance and Notification Projects](#43-manage-reports-for-attendance-and-notification-projects)
+  * [4.4 Serve Reports via HTTP](#44-serve-reports-via-http)
+  * [4.5 Access Reports from Browser](#45-access-reports-from-browser)
 * [5. Conclusion](#5-conclusion)
 * [6. Contact Information](#6-contact-information)
 * [7. Reference Table](#7-reference-table)
@@ -37,7 +34,7 @@ Got it! Here’s your **Bandit Setup and Usage POC** in the same professional, c
 
 ### **1. Introduction**
 
-This POC demonstrates how to use **Bandit**, a Python security static analyzer, to scan your Python projects for common security issues. Bandit identifies vulnerabilities early, ensuring secure coding practices and compliance with security standards.
+This POC demonstrates how to use **Bandit**, a Python security static analysis tool, to identify vulnerabilities in your code. It helps enforce secure coding practices across your Python services like attendance APIs or background workers.
 
 ---
 
@@ -45,14 +42,12 @@ This POC demonstrates how to use **Bandit**, a Python security static analyzer, 
 
 * Python installed (version 3.x recommended)
 * Pip package manager available
-* Python project folder with your source code ready
 
 ---
 
-### **3. Bandit Scan Document**
+### **3. Python CI Checks Bugs Analysis Document**
 
-For detailed concepts like "What is Bandit," "Why use Bandit," "Workflow," "Advantages vs Disadvantages," and "Best Practices," refer to the official documentation at:
-[Bandit Documentation](https://bandit.readthedocs.io/en/latest/)
+Refer to this link for ["What is Python CI Bugs Analysis?", "Why Use Python CI Bugs Analysis?", "Workflow Diagram", "Available Tools", "Tool Comparison", "Advantages vs Disadvantages", and "Best Practices".]()
 
 ---
 
@@ -60,86 +55,97 @@ For detailed concepts like "What is Bandit," "Why use Bandit," "Workflow," "Adva
 
 #### **4.1 Install Bandit**
 
-Install Bandit using pip:
-
 ```bash
 pip install bandit
 ```
 
-Use `pip3` if your system differentiates Python 3 pip.
+> Use `pip3` if your system uses it for Python 3 (e.g., `pip3 install bandit`)
+
+![bandit 1](https://github.com/user-attachments/assets/0685b9eb-5a5c-44c4-a9db-fd339064a322)
 
 ---
 
 #### **4.2 Run Bandit with Terminal Output**
 
-Scan your entire project recursively and print the report directly in the terminal for quick review:
+To quickly scan all Python files and print results to terminal:
 
 ```bash
 bandit -r .
 ```
 
-Here, `-r .` means scan all files and subdirectories from the current folder.
+* `-r .` = Recursive scan of current directory and subfolders
+
+![bandit 5](https://github.com/user-attachments/assets/2757413d-1db6-45b7-8da2-9fdfc726500c)
+![bandit 4](https://github.com/user-attachments/assets/ef18088e-829a-45e3-ab6c-e5c00d4cb05a)
+![bandit 6](https://github.com/user-attachments/assets/772c1627-8f54-4de0-840e-0f2c028be8f1)
 
 ---
 
-#### **4.3 Run Bandit and Save HTML Report**
+#### **4.3 Manage Reports for Attendance and Notification Projects**
 
-Generate a detailed, user-friendly HTML report that you can open in a browser:
+Create detailed HTML reports for each project to avoid overwrites:
 
 ```bash
-bandit -r . -f html -o bandit_report.html
+# Attendance API
+cd ~/attendance-api
+bandit -r . -f html -o bandit_report_attendance.html
 ```
 
-* `-f html`: Output format HTML
-* `-o bandit_report.html`: Save report as this file
-
----
-
-#### **4.4 Manage Multiple Reports**
-
-When scanning multiple projects, save reports with unique names to prevent overwriting:
+![bandit 3](https://github.com/user-attachments/assets/fbc225e2-fdf9-43de-ab6d-5dcab522b7ed)
 
 ```bash
-cd ~/project1
-bandit -r . -f html -o bandit_report_project1.html
-
-cd ~/project2
-bandit -r . -f html -o bandit_report_project2.html
+# Notification Worker
+cd ~/notification-worker
+bandit -r . -f html -o bandit_report_notification.html
 ```
 
+![bandit 2](https://github.com/user-attachments/assets/7f18b97f-6a4f-49de-bfb0-a79efd1dd3d7)
+
+* `-f html`: Format is HTML
+* `-o bandit_report.html`: Output file name
+  
 ---
 
-#### **4.5 Serve Reports via HTTP**
+#### **4.4 Serve Reports via HTTP**
 
-To view reports remotely, serve the report files over HTTP using Python’s built-in server on different ports:
+You can make the reports accessible via a browser using Python's built-in HTTP server:
 
 ```bash
-# Serve project1 report on port 8000
-cd ~/project1
+# Attendance API on port 8000
+cd ~/attendance-api
 python3 -m http.server 8000
+```
+![bandit 8](https://github.com/user-attachments/assets/da7b0587-2018-4f68-b12e-e60c87504ef8)
 
-# Serve project2 report on port 8001
-cd ~/project2
+
+```bash
+# Notification Worker on port 8001
+cd ~/notification-worker
 python3 -m http.server 8001
 ```
+![bandit 7](https://github.com/user-attachments/assets/71cb0823-f02a-4766-868b-b5c6043851c3)
 
 ---
 
-#### **4.6 Access Reports from Browser**
+#### **4.5 Access Reports from Browser**
 
-From your local machine, open the following URLs in a web browser by replacing `<EC2-IP-ADDRESS>` with your server IP:
+Replace `<EC2-IP-ADDRESS>` with your instance's public IP address.
 
-* Project 1 report:
-  `http://<EC2-IP-ADDRESS>:8000/bandit_report_project1.html`
+* **Attendance API Report**
+  `http://<EC2-IP-ADDRESS>:8000/bandit_report_attendance.html`
 
-* Project 2 report:
-  `http://<EC2-IP-ADDRESS>:8001/bandit_report_project2.html`
+![bandit 9](https://github.com/user-attachments/assets/e1f352ca-709a-4092-b4e1-041d75f0d8a2)
+
+* **Notification Worker Report**
+  `http://<EC2-IP-ADDRESS>:8001/bandit_report_notification.html`
+
+![bandit 10](https://github.com/user-attachments/assets/48028fab-e8ed-47b0-b4d0-f6c7983b3a37)
 
 ---
 
 ### **5. Conclusion**
 
-This POC shows how Bandit can be integrated into your Python development process to detect security vulnerabilities early. By producing both quick terminal outputs and detailed HTML reports, Bandit fits well into manual reviews and automated CI/CD pipelines, promoting secure Python code.
+This POC concludes that Bandit effectively identifies and mitigates security vulnerabilities in Python projects. It supports enforcing secure coding during the CI phase. HTML reports served via HTTP enable easy access, ideal for developer workflows and CI/CD integration.
 
 ---
 
@@ -158,6 +164,4 @@ This POC shows how Bandit can be integrated into your Python development process
 | [Bandit Official Documentation](https://bandit.readthedocs.io/en/latest/) | Comprehensive Bandit usage and guides    |
 | [Bandit GitHub Repository](https://github.com/PyCQA/bandit)               | Source code and community issues tracker |
 
----
 
-If you want me to help format or customize anything else, just let me know!
