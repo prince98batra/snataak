@@ -1,10 +1,8 @@
 # Infrastructure Monitoring – Key Metrics & Requirements
 
 <p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Prometheus_software_logo.svg" alt="Infra Monitoring Logo" width="200"/>
+  <img src="https://img.freepik.com/premium-vector/system-monitoring-icon_23785-2166.jpg?w=826" width="300"/>
 </p>
-
----
 
 ## **Author Information**
 
