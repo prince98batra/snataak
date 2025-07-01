@@ -9,8 +9,8 @@
 | Created    | Last updated | Version | Author       | Level           | Reviewer         |
 | ---------- | ------------ | ------- | ------------ | --------------- | ---------------- |
 | 01-07-2025 | 01-07-2025   | V1.0    | Prince Batra | Internal Review | Komal Jaiswal |
-| 01-07-2025 | 01-07-2025   | V1.0    | Prince Batra | Internal Review | Shreya Jaiswal |
-| 01-07-2025 | 01-07-2025   | V1.0    | Prince Batra | Internal Review | Kirti Nehra |
+| 01-07-2025 | 01-07-2025   | V1.0    | Prince Batra | L0 Review | Shikha |
+| 01-07-2025 | 01-07-2025   | V1.0    | Prince Batra | L1 Review | Kirti Nehra |
 
 ---
 
