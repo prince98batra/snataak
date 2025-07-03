@@ -1,12 +1,32 @@
 # Infrastructure Monitoring – Dashboard Design Documentation
 
+<p align="center">
+  <img src="https://cdn-icons-png.flaticon.com/512/5432/5432747.png" width="200"/>
+</p>
+
 ## **Author Information**
 
-| Created    | Last updated | Version | Author       | Level           | Reviewer         |
-| ---------- | ------------ | ------- | ------------ | --------------- | ---------------- |
+| Created    | Last updated | Version | Author       | Level           | Reviewer      |
+| ---------- | ------------ | ------- | ------------ | --------------- | ------------- |
 | 01-07-2025 | 01-07-2025   | V1.0    | Prince Batra | Internal Review | Komal Jaiswal |
-| 01-07-2025 | 01-07-2025   | V1.0    | Prince Batra | L0 Review | Shikha |
-| 01-07-2025 | 01-07-2025   | V1.0    | Prince Batra | L1 Review | Kirti Nehra |
+| 01-07-2025 | 01-07-2025   | V1.0    | Prince Batra | L0 Review       | Shikha        |
+| 01-07-2025 | 01-07-2025   | V1.0    | Prince Batra | L1 Review       | Kirti Nehra   |
+
+---
+
+## **Table of Contents**
+
+1. [Purpose of the Document](#purpose-of-the-document)
+2. [Need of Monitoring](#need-of-monitoring)
+3. [Flow of Designing the Dashboard](#flow-of-designing-the-dashboard)
+4. [Dashboard Design Structure](#dashboard-design-structure)
+5. [Design Approach Details](#design-approach-details)
+   * [Layout](#layout)
+   * [Panels](#panels)
+   * [Grouping Logic](#grouping-logic)
+   * [User-Focused Visualization Best Practices](#user-focused-visualization-best-practices)
+6. [Conclusion](#conclusion)
+7. [Reference Table](#reference-table)
 
 ---
 
@@ -110,4 +130,15 @@ This document explains how to design **infrastructure monitoring dashboards** us
 
 ## Conclusion
 
-This document outlines the dashboard design approach for infrastructure monitoring using Prometheus and Grafana. It covers the need for monitoring, design flow, and a clear dashboard structure. This serves as a base for future alerting and incident response setup.
+This document outlines the dashboard design approach for infrastructure monitoring using Prometheus and Grafana. It covers the need for monitoring, design flow, and a clear dashboard structure — **now enhanced with a diagram to visualize layout**, making it more practical and implementable.
+
+---
+
+## **Reference Table**
+
+| **Links**                                                                        | **Overview**                                           |
+| -------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| [Prometheus](https://prometheus.io)                                              | Official website for Prometheus monitoring system.     |
+| [Node Exporter](https://github.com/prometheus/node_exporter)                     | Exporter for system-level metrics in Linux.            |
+| [Grafana](https://grafana.com)                                                   | Tool for building metric dashboards.                   |
+| [Prometheus Alerting](https://prometheus.io/docs/alerting/latest/alertmanager/)  | Guide for configuring alerting rules and Alertmanager. |
