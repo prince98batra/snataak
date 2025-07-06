@@ -1,16 +1,8 @@
-Yes — I remember! You're sharing your **Python Poetry SOP** as a **format reference**, and you'd like a **new SOP** created in that same format — but this time for your **Terraform unit testing POC using Go & Terratest**. Let's build it based on:
+# **Terraform Unit Test POC**
 
-* The format you shared ✅
-* The detailed steps and logs you previously walked through ✅
-* Clear & clean markdown for professional documentation ✅
+![icons8-terraform-240](https://github.com/user-attachments/assets/731fe4cd-9e32-4778-9b28-75f78237d19d)
 
----
 
-# **SOP: Terraform Unit Testing using Go and Terratest**
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/gruntwork-io/terratest/master/terratest-logo.png" alt="terratest logo" width="300"/>
-</p>
 
 ## **Author Information**
 
