@@ -1,8 +1,6 @@
 # **Terraform Unit Test POC**
 
-![icons8-terraform-240](https://github.com/user-attachments/assets/731fe4cd-9e32-4778-9b28-75f78237d19d)
-
-
+<p align="center"> <img src="https://github.com/user-attachments/assets/731fe4cd-9e32-4778-9b28-75f78237d19d" alt="Terraform Icon" width="200"/> </p>
 
 ## **Author Information**
 
