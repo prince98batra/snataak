@@ -1,12 +1,16 @@
 # **Terraform Unit Test POC**
 
-<p align="center"> <img src="https://github.com/user-attachments/assets/731fe4cd-9e32-4778-9b28-75f78237d19d" alt="Terraform Icon" width="200"/> </p>
+<p align="center"> 
+  <img src="https://github.com/user-attachments/assets/731fe4cd-9e32-4778-9b28-75f78237d19d" alt="Terraform Icon" width="200"/> 
+</p>
 
 ## **Author Information**
 
-| Created    | Last updated | Version | Author       | Level           | Reviewer |
-| ---------- | ------------ | ------- | ------------ | --------------- | -------- |
-| 06-07-2025 | 06-07-2025   | V1.0    | Prince Batra | Internal Review | TBD      |
+| Created    | Last updated | Version | Author       | Level           | Reviewer      |
+| ---------- | ------------ | ------- | ------------ | --------------- | ------------- |
+| 06-07-2025 | 06-07-2025   | V1.0    | Prince Batra | Internal Review | Komal Jaiswal |
+| 06-07-2025 | 06-07-2025   | V1.0    | Prince Batra | L0 Review       | Shikha        |
+| 06-07-2025 | 06-07-2025   | V1.0    | Prince Batra | L1 Review       | Kirti Nehra   |
 
 ---
 
@@ -16,14 +20,13 @@
 * [Prerequisites](#prerequisites)
 * [Step-by-Step Instructions](#step-by-step-instructions)
 
-  * [Step 1: Install Go and Terraform (if not already installed)](#step-1-install-go-and-terraform-if-not-already-installed)
-  * [Step 2: Check Versions](#step-2-check-versions)
-  * [Step 3: Initialize Go Module](#step-3-initialize-go-module)
-  * [Step 4: Install Required Go Packages](#step-4-install-required-go-packages)
-  * [Step 5: Tidy Up Go Modules](#step-5-tidy-up-go-modules)
-  * [Step 6: Create Terraform and Test Directory Structure](#step-6-create-terraform-and-test-directory-structure)
-  * [Step 7: Add Go Test File](#step-7-add-go-test-file)
-  * [Step 8: Run Unit Tests](#step-8-run-unit-tests)
+  * [Step 1: Check Versions and Install if Not Installed](#step-1-check-versions-and-install-if-not-installed)
+  * [Step 2: Initialize Go Module](#step-2-initialize-go-module)
+  * [Step 3: Install Required Go Packages](#step-3-install-required-go-packages)
+  * [Step 4: Tidy Up Go Modules](#step-4-tidy-up-go-modules)
+  * [Step 5: Create Test Directory and Test File](#step-5-create-test-directory-and-test-file)
+  * [Step 6: Add Go Test File](#step-6-add-go-test-file)
+  * [Step 7: Run Unit Tests](#step-7-run-unit-tests)
 * [Conclusion](#conclusion)
 * [Contact Information](#contact-information)
 * [Reference Table](#reference-table)
@@ -32,61 +35,41 @@
 
 ## Introduction
 
-This SOP explains how to write and execute **unit tests for Terraform** infrastructure using **Go** and **[Terratest](https://terratest.gruntwork.io/)**, a Go library for automated testing of infrastructure code.
+This POC demonstrates how to write and execute **unit tests for a Terraform module** using **Go** and the **Terratest** library. It ensures that your infrastructure code behaves as expected by validating resources through real-time interaction with cloud APIs.
 
 ---
 
 ## Prerequisites
 
-* A Linux-based environment (or WSL for Windows users)
-* Basic knowledge of Go and Terraform
-* Terraform configuration already written (e.g., to create an S3 bucket)
-* Internet access to download modules
+* **Terraform module** should be present and ready for testing.
+* **Go** and **Terraform** must be installed and configured.
 
 ---
 
 ## Step-by-Step Instructions
 
----
-
-### Step 1: Install Go and Terraform (if not already installed)
+### Step 1: Check Versions and Install if Not Installed
 
 ```bash
-# Install Go (Linux/WSL example)
-sudo apt update
-sudo apt install golang-go -y
-
-# Install Terraform
-sudo apt install unzip -y
-wget https://releases.hashicorp.com/terraform/1.8.3/terraform_1.8.3_linux_amd64.zip
-unzip terraform_1.8.3_linux_amd64.zip
-sudo mv terraform /usr/local/bin/
-terraform -version
+go version         
+terraform version  
 ```
+![image](https://github.com/user-attachments/assets/1a65317b-f680-41e5-bf9c-be2725a543ac)
 
 ---
 
-### Step 2: Check Versions
+### Step 2: Initialize Go Module
+
+Navigate to your Terraform module root directory and run:
 
 ```bash
-go version         # Should be >= go1.23
-terraform version  # Should be >= v1.3
+go mod init s3
 ```
+![image](https://github.com/user-attachments/assets/984de65d-bc7b-4720-ac5c-53910e79d520)
 
 ---
 
-### Step 3: Initialize Go Module
-
-Navigate to your Terraform root directory (e.g., `~/terraform/s3`) and initialize a Go module:
-
-```bash
-cd ~/terraform/s3
-go mod init s3-poc
-```
-
----
-
-### Step 4: Install Required Go Packages
+### Step 3: Install Required Go Packages
 
 ```bash
 go get github.com/aws/aws-sdk-go/aws \
@@ -95,34 +78,31 @@ go get github.com/aws/aws-sdk-go/aws \
        github.com/gruntwork-io/terratest/modules/aws \
        github.com/stretchr/testify/require
 ```
-
-> Terratest will automatically bump Go version to `go1.23` if required.
+![image](https://github.com/user-attachments/assets/2f4951f4-452b-4f53-aa1c-e3deedb19893)
 
 ---
 
-### Step 5: Tidy Up Go Modules
+### Step 4: Tidy Up Go Modules
 
 ```bash
 go mod tidy
 ```
+![image](https://github.com/user-attachments/assets/9d46bd66-8e51-42a8-9329-ed3539262075)
 
-This cleans up unused dependencies and generates a `go.sum` file for version locking.
+This generates `go.sum` and removes unused packages.
 
 ---
 
-### Step 6: Create Terraform and Test Directory Structure
-
-Make sure you have a Terraform config (e.g., `main.tf`) to provision something like an S3 bucket.
-Now create a test directory and Go test file:
+### Step 5: Create Test Directory and Test File
 
 ```bash
-mkdir test
+mkdir -p test
 touch test/s3_test.go
 ```
 
 ---
 
-### Step 7: Add Go Test File
+### Step 6: Add Go Test File
 
 Paste the following into `test/s3_test.go`:
 
@@ -130,54 +110,84 @@ Paste the following into `test/s3_test.go`:
 package test
 
 import (
-    "testing"
-    "github.com/gruntwork-io/terratest/modules/terraform"
-    "github.com/stretchr/testify/require"
-    "github.com/gruntwork-io/terratest/modules/aws"
+        "context"
+        "strings"
+        "testing"
+
+        "github.com/aws/aws-sdk-go/aws"
+        "github.com/aws/aws-sdk-go/aws/session"
+        "github.com/aws/aws-sdk-go/service/s3"
+        "github.com/gruntwork-io/terratest/modules/terraform"
+        "github.com/stretchr/testify/require"
 )
 
 func TestS3Bucket(t *testing.T) {
-    t.Parallel()
+        t.Parallel()
 
-    terraformOptions := &terraform.Options{
-        TerraformDir: "../",
-    }
+        tf := &terraform.Options{
+                TerraformDir: "..",
+                Vars: map[string]interface{}{
+                        "name": "prince-bucket-name",
+                        "tags": map[string]string{
+                                "Environment": "dev",
+                                "Owner":       "Prince",
+                        },
+                },
+        }
 
-    defer terraform.Destroy(t, terraformOptions)
+        defer terraform.Destroy(t, tf)
+        terraform.InitAndApply(t, tf)
 
-    terraform.InitAndApply(t, terraformOptions)
+        bucket := terraform.Output(t, tf, "bucket_name")
+        require.True(t, strings.HasPrefix(bucket, "prince-bucket-name-"))
 
-    bucketName := terraform.Output(t, terraformOptions, "bucket_name")
-    region := terraform.Output(t, terraformOptions, "region")
+        sess, err := session.NewSession(&aws.Config{Region: aws.String("us-east-1")})
+        require.NoError(t, err)
 
-    actualExists := aws.S3BucketExists(t, region, bucketName)
-    require.True(t, actualExists, "Expected S3 bucket to exist")
+        c := s3.New(sess)
+        ctx := context.Background()
+
+        _, err = c.HeadBucketWithContext(ctx, &s3.HeadBucketInput{Bucket: aws.String(bucket)})
+        require.NoError(t, err)
+
+        tagOut, err := c.GetBucketTaggingWithContext(ctx, &s3.GetBucketTaggingInput{Bucket: aws.String(bucket)})
+        require.NoError(t, err)
+        got := map[string]string{}
+        for _, tg := range tagOut.TagSet {
+                got[*tg.Key] = *tg.Value
+        }
+        require.Equal(t, "dev", got["Environment"])
+        require.Equal(t, "Prince", got["Owner"])
+
+        encOut, err := c.GetBucketEncryptionWithContext(ctx, &s3.GetBucketEncryptionInput{Bucket: aws.String(bucket)})
+        require.NoError(t, err)
+        require.Equal(t, "AES256",
+                *encOut.ServerSideEncryptionConfiguration.Rules[0].
+                        ApplyServerSideEncryptionByDefault.SSEAlgorithm)
 }
 ```
 
-> Ensure your Terraform config in `main.tf` has proper output variables `bucket_name` and `region`.
-
 ---
 
-### Step 8: Run Unit Tests
+### Step 7: Run Unit Tests
 
 ```bash
-go test -v ./test
+go test -v | grep -E "===|---|FAIL|PASS"
 ```
+![image](https://github.com/user-attachments/assets/758a784a-08de-4db7-b12b-752a38780bde)
 
-> The `-v` flag enables verbose output. If you want less noise:
+> The `grep` command filters out only key test output lines.
+> To view full verbose test logs:
 
 ```bash
-go test ./test
+go test -v
 ```
 
 ---
 
 ## Conclusion
 
-Terratest makes it easy to test Terraform infrastructure with real deployments. This setup helps validate critical infrastructure changes and enforce correctness using Go's test framework.
-
-Use this process whenever creating new infrastructure modules in Terraform, especially in CI pipelines.
+This POC provides a clear structure to implement unit testing in Terraform modules using **Go + Terratest**. Such tests help catch errors early by simulating real deployments and verifying AWS resource state, tags, encryption, and naming conventions. This approach is ideal for **CI/CD pipelines** and **production-grade Terraform modules**.
 
 ---
 
@@ -196,13 +206,3 @@ Use this process whenever creating new infrastructure modules in Terraform, espe
 | [Terratest Docs](https://terratest.gruntwork.io/)                | Official Terratest documentation             |
 | [Go Official Docs](https://go.dev/doc/)                          | Learn more about the Go programming language |
 | [Terraform Docs](https://developer.hashicorp.com/terraform/docs) | Complete Terraform documentation             |
-
----
-
-Let me know if you want:
-
-* A downloadable `.md` or `.pdf` version of this
-* A reusable template format for future infra test POCs
-* Integration with GitHub Actions for CI testing
-
-Ready when you are.
