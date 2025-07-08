@@ -25,11 +25,10 @@
   * [Step 3 – Add alert rules](#step-3)
   * [Step 4 – Configure Alertmanager email](#step-4)
   * [Step 5 – Add Prometheus data‑source to Grafana](#step-5)
-  * [Step 6 – Create CPU + Memory dashboard](#step-6)
-* [Triggering a test alert](#triggering-a-test-alert)
+  * [Step 6 – Create CPU & Memory dashboard](#step-6)
 * [Conclusion](#conclusion)
 * [Reference Table](#reference-table)
-
+* 
 ---
 
 ## Introduction
@@ -48,7 +47,7 @@ This POC demonstrates end-to-end infrastructure monitoring using Prometheus, Gra
 
 ---
 
-## Step‑by‑Step Instructions
+## Step by Step Instructions
 
 <a id="step-1"></a>
 
@@ -84,7 +83,7 @@ grafana-server -v
 /etc/prometheus/rules.yml
 ```
 
-![image](https://github.com/user-attachments/assets/3c9c3410-19d7-4f40-9760-3be470b10fde)
+![image](https://github.com/user-attachments/assets/b08ae2ec-8b8e-4857-8aae-21fba3e37478)
 
 ---
 
@@ -104,46 +103,54 @@ grafana-server -v
 
 ### **Step 5 – Add Prometheus to Grafana**
 
-1. Open `<<private-ip>>:3000` → login `admin / admin`.
-2. **Gear icon ▸ Data Sources ▸ Add ➜ Prometheus**
-   *URL:* `<<private-ip>>:9090` → **Save & Test**.
+1. Go to `http://<monitoring-ip>:3000`
+2. Login: `admin / admin` (default)
+3. Navigate to:
+
+   * ⚙️ **Configuration** → **Data Sources**
+   * Click **Add data source** → Select **Prometheus**
+4. Set the URL to:
+
+```
+http://localhost:9090
+```
 
 ---
 
 <a id="step-6"></a>
 
-### **Step 6 – Create CPU & Memory dashboard**
+### **Step 6 – Create CPU & Memory Dashboard**
 
 | Panel                         | Query (Code mode)                                                                                | Unit | Thresholds |
 | ----------------------------- | ------------------------------------------------------------------------------------------------ | ---- | ---------- |
-| **CPU Usage %** (Time series) | `100 - (avg by(instance)(rate(node_cpu_seconds_total{mode="idle"}[5m]))*100)`                    | %    | 70 / 90    |
-| **Memory Usage %** (Gauge)    | `((node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes)/node_memory_MemTotal_bytes)*100` | %    | 75 / 90    |
+| **CPU Usage %** (Time series) | (100 - (avg by(instance)(rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100))`                    | %    | 70 / 90    |
 
-Set **Min 0 / Max 100** and Legend `{{instance}}`.
+ In Grafana panel settings:
+* Visualization → `Time Series` (for CPU)
+* Unit → `%`
+* Thresholds: set yellow at 70%, red at 90%
+* Legend → `{{instance}}`
+* Set **Min = 0**, **Max = 100** for clear display
+
+![image](https://github.com/user-attachments/assets/e684ac5a-09ef-4aec-8922-79e21f807f5a)
 
 ---
 
-## Triggering a Test Alert
-
-SSH into `54.166.11.3` and run:
-
-```bash
-sudo apt-get install -y stress
-stress --cpu $(nproc) --timeout 360   # load >90 % for 6 min
-```
+## Verify if alert received or not after any event is triggered like cpu
 
 After 5 min:
 
 * Prometheus ▸ `/alerts` → `CPUUsageCritical` = **Firing**
+
+![image](https://github.com/user-attachments/assets/922522e1-cfea-45cd-80f5-e2d69e5e0251)
+
 * Alertmanager UI shows alert and email is sent.
 
-Stop load:
+![image](https://github.com/user-attachments/assets/eacf6710-f302-4f6f-aa72-607c12824b46)
 
-```bash
-pkill stress
-```
+Alert will also be received on email .
 
-Alert resolves and email “Resolved” message arrives.
+![image](https://github.com/user-attachments/assets/0ac0d116-d3e7-497f-b75c-08e65252a31e)
 
 ---
 
@@ -166,5 +173,3 @@ Adapt the same pattern for Disk, Network, Load, and Uptime using the queries & t
 | Prometheus Docs   | Metric collection & alert rules |
 | Grafana Docs      | Dashboard creation              |
 | Alertmanager Docs | Email / Slack routing           |
-
-Feel free to copy, tweak thresholds, or extend to other metrics.
