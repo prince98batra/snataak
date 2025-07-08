@@ -6,11 +6,11 @@
 
 ## **Author Information**
 
-| Created    | Last updated | Version | Author       | Level           | Reviewer |
-| ---------- | ------------ | ------- | ------------ | --------------- | -------- |
-| 07‑07‑2025 | 07‑07‑2025   | V1.0    | Prince Batra | Internal Review | Aman     |
-| 07‑07‑2025 | 07‑07‑2025   | V1.0    | Prince Batra | L0 Review       | Shikha        |
-| 07‑07‑2025 | 07‑07‑2025   | V1.0    | Prince Batra | L1 Review       | Kirti Nehra   |
+| Created    | Last updated | Version | Author       | Level           | Reviewer    |
+| ---------- | ------------ | ------- | ------------ | --------------- | ----------- |
+| 07‑07‑2025 | 07‑07‑2025   | V1.0    | Prince Batra | Internal Review | Aman        |
+| 07‑07‑2025 | 07‑07‑2025   | V1.0    | Prince Batra | L0 Review       | Shikha      |
+| 07‑07‑2025 | 07‑07‑2025   | V1.0    | Prince Batra | L1 Review       | Kirti Nehra |
 
 ---
 
@@ -28,7 +28,7 @@
   * [Step 6 – Create CPU & Memory dashboard](#step-6)
 * [Conclusion](#conclusion)
 * [Reference Table](#reference-table)
-* 
+
 ---
 
 ## Introduction
@@ -43,11 +43,11 @@ This POC demonstrates end-to-end infrastructure monitoring using Prometheus, Gra
 | ----------------------------------------- | ------------------------------------------- |
 | Monitoring Server                         | Prometheus, Grafana, Alertmanager installed |
 | Target Server                             | Node Exporter installed                     |
-| Outbound SMTP (Port 587) for Gmail alerts | App Password recommended with 2FA       |
+| Outbound SMTP (Port 587) for Gmail alerts | App password recommended with 2FA           |
 
 ---
 
-## Step by Step Instructions
+## Step-by-Step Instructions
 
 <a id="step-1"></a>
 
@@ -58,6 +58,7 @@ prometheus --version
 alertmanager --version
 grafana-server -v
 ```
+
 ![image](https://github.com/user-attachments/assets/09973319-35cf-47ba-a811-3b26f82a360e)
 
 ---
@@ -72,7 +73,8 @@ grafana-server -v
 
 ![image](https://github.com/user-attachments/assets/a6cb3d56-a265-4433-ae82-9a7fed0cd7c7)
 
-* Make sure node exporter is installed on target server
+* Make sure Node Exporter is installed on the target server.
+
 ---
 
 <a id="step-3"></a>
@@ -119,13 +121,14 @@ http://localhost:9090
 
 <a id="step-6"></a>
 
-### **Step 6 – Create CPU & Memory Dashboard**
+### **Step 6 – Create CPU Dashboard**
 
-| Panel                         | Query (Code mode)                                                                                | Unit | Thresholds |
-| ----------------------------- | ------------------------------------------------------------------------------------------------ | ---- | ---------- |
-| **CPU Usage %** (Time series) | (100 - (avg by(instance)(rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100))`                    | %    | 70 / 90    |
+| Panel                         | Query (Code mode)                                                                 | Unit | Thresholds |
+| ----------------------------- | --------------------------------------------------------------------------------- | ---- | ---------- |
+| **CPU Usage %** (Time series) | `(100 - (avg by(instance)(rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100))` | %    | 70 / 90    |
 
- In Grafana panel settings:
+In Grafana panel settings:
+
 * Visualization → `Time Series` (for CPU)
 * Unit → `%`
 * Thresholds: set yellow at 70%, red at 90%
@@ -136,9 +139,9 @@ http://localhost:9090
 
 ---
 
-## Verify if alert received or not after any event is triggered like cpu
+### Verify Alert Triggering After a CPU Event
 
-After 5 min:
+After 2 min:
 
 * Prometheus ▸ `/alerts` → `CPUUsageCritical` = **Firing**
 
@@ -148,7 +151,7 @@ After 5 min:
 
 ![image](https://github.com/user-attachments/assets/eacf6710-f302-4f6f-aa72-607c12824b46)
 
-Alert will also be received on email .
+Alert will also be received via email.
 
 ![image](https://github.com/user-attachments/assets/0ac0d116-d3e7-497f-b75c-08e65252a31e)
 
@@ -156,20 +159,15 @@ Alert will also be received on email .
 
 ## Conclusion
 
-This POC demonstrates full flow:
-
-1. **Collection** – Node Exporter → Prometheus
-2. **Alerting** – Prometheus rules → Alertmanager email
-3. **Visualisation** – Grafana dashboard (CPU, Memory)
-
-Adapt the same pattern for Disk, Network, Load, and Uptime using the queries & thresholds table.
+This POC enables quick infrastructure monitoring with Prometheus, Grafana, and Alertmanager. It covers collection, alerting, and visualization of system metrics using a reusable pattern. The same setup can be extended to monitor disk, network, and uptime as needed.
 
 ---
 
 ## Reference Table
 
-| Link              | Purpose                         |
-| ----------------- | ------------------------------- |
-| Prometheus Docs   | Metric collection & alert rules |
-| Grafana Docs      | Dashboard creation              |
-| Alertmanager Docs | Email / Slack routing           |
+| Link                                                                          | Purpose                         |
+| ----------------------------------------------------------------------------- | ------------------------------- |
+| [Prometheus Docs](https://prometheus.io/docs/)                                | Metric collection & alert rules |
+| [Grafana Docs](https://grafana.com/docs/)                                     | Dashboard creation              |
+| [Alertmanager Docs](https://prometheus.io/docs/alerting/latest/alertmanager/) | Email / Slack routing           |
+
