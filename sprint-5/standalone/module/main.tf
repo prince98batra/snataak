@@ -3,24 +3,42 @@ resource "null_resource" "create_key_pair_if_missing" {
     command = <<EOT
       set -euo pipefail
 
-      mkdir -p ~/.ssh
+      KEY_NAME="${var.key_name}"
+      REGION="us-west-1"
+      S3_BUCKET="snaatak-p14-tfstatefile"
+      S3_OBJECT_PATH="env/dev/key-pair/$${KEY_NAME}.pem"
+      TEMP_KEY_PATH=$(mktemp)
 
-      if ! aws ec2 describe-key-pairs --key-names ${var.key_name} --region us-west-1 >/dev/null 2>&1; then
-        echo "Creating key pair '${var.key_name}' in us-west-1..."
+      if ! aws ec2 describe-key-pairs --key-names "$${KEY_NAME}" --region "$${REGION}" >/dev/null 2>&1; then
+        echo "Key pair '$${KEY_NAME}' not found in AWS. Creating..."
+
         aws ec2 create-key-pair \
-          --key-name ${var.key_name} \
+          --key-name "$${KEY_NAME}" \
           --query 'KeyMaterial' \
           --output text \
-          --region us-west-1 > ~/${var.key_name}.pem
+          --region "$${REGION}" > "$${TEMP_KEY_PATH}"
 
-        chmod 400 ~/${var.key_name}.pem
-        echo "Key pair '${var.key_name}' created and saved to ~/${var.key_name}.pem"
+        chmod 400 "$${TEMP_KEY_PATH}"
+
+        echo "Uploading key to S3: s3://$${S3_BUCKET}/$${S3_OBJECT_PATH}"
+        aws s3 cp "$${TEMP_KEY_PATH}" "s3://$${S3_BUCKET}/$${S3_OBJECT_PATH}"
+
+        echo "Key pair created and uploaded to S3"
       else
-        echo "Key pair '${var.key_name}' already exists. Skipping creation."
+        echo "Key pair '$${KEY_NAME}' exists in AWS."
+
+        echo "Checking if key exists in S3..."
+        if aws s3 ls "s3://$${S3_BUCKET}/$${S3_OBJECT_PATH}" >/dev/null 2>&1; then
+          echo "Key already present in S3: s3://$${S3_BUCKET}/$${S3_OBJECT_PATH}"
+        else
+          echo "Error: Key exists in AWS but not found in S3. Please upload it manually."
+          exit 1
+        fi
       fi
 
-      cat ~/${var.key_name}.pem
+      rm -f "$${TEMP_KEY_PATH}" || true
     EOT
+
     interpreter = ["/bin/bash", "-c"]
   }
 
@@ -28,7 +46,6 @@ resource "null_resource" "create_key_pair_if_missing" {
     always_run = timestamp()
   }
 }
-
 
 # Create security group
 resource "aws_security_group" "main_sg" {
@@ -73,15 +90,14 @@ resource "aws_security_group" "main_sg" {
 
 # Launch EC2 instance
 resource "aws_instance" "ec2" {
-  ami           = var.ami_id
-  instance_type = var.instance_type
-  key_name      = var.key_name
-  subnet_id     = var.subnet_id
-
+  ami                    = var.ami_id
+  instance_type          = var.instance_type
+  key_name               = var.key_name
+  subnet_id              = var.subnet_id
   vpc_security_group_ids = [aws_security_group.main_sg.id]
 
   tags = {
-    Name = var.sg_name
+    Name = var.instance_name
   }
 
   depends_on = [null_resource.create_key_pair_if_missing]

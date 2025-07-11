@@ -1,11 +1,11 @@
 locals {
-  environment  = "dev"
-  app_name     = "notification"
-  name_prefix  = "${local.environment}-${local.app_name}"
-  
+  environment          = "dev"
+  app_name             = "notification"
+  instance_name        = "${local.environment}-${local.app_name}"
+  security_group_name  = "${local.instance_name}-sg"
+
   allowed_sg_names = ["dev-otms-alb-sg"]
 }
-
 
 data "terraform_remote_state" "network" {
   backend = "s3"
@@ -37,7 +37,8 @@ module "ec2_instance" {
   ami_id        = "ami-0f480532aec0003f8"
   instance_type = "t2.small"
   key_name      = "otms"
-  sg_name       = local.name_prefix
+  sg_name       = local.security_group_name
+  instance_name = local.instance_name
   vpc_id        = data.terraform_remote_state.network.outputs.vpc_id
   subnet_id     = data.terraform_remote_state.network.outputs.private_subnet_ids["api-subnet"]
 
@@ -62,9 +63,9 @@ module "ec2_instance" {
   allowed_sg_ingress_rules = [
     for sg in data.aws_security_group.dynamic_sgs :
     {
-      from_port                = 5000
-      to_port                  = 5000
-      protocol                 = "tcp"
+      from_port                 = 5000
+      to_port                   = 5000
+      protocol                  = "tcp"
       source_security_group_id = sg.id
     }
   ]

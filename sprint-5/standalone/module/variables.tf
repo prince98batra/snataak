@@ -58,3 +58,8 @@ variable "allowed_sg_ingress_rules" {
   }))
   default = []
 }
+
+variable "instance_name" {
+  description = "Name for EC2 instance tag"
+  type        = string
+}
