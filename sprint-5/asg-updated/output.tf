@@ -43,6 +43,11 @@ output "https_listener_arn" {
   value       = try(aws_lb_listener.https[0].arn, null)
 }
 
+output "security_group_name_generated" {
+  description = "Name of the generated security group"
+  value       = aws_security_group.main_sg.name
+}
+
 output "listener_rule_arn" {
   description = "Listener rule ARN"
   value       = var.is_frontend ? try(aws_lb_listener_rule.http_rule[0].arn, null) : try(aws_lb_listener_rule.backend_rule[0].arn, null)
